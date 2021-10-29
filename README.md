@@ -6,16 +6,25 @@
 
 The package currently provides the following extensions:
 
-**Image**
+**`Image`**
 
 - `init(name:type:)`: Creates a new instance with the specified file name and type.
 
-**View**
+**`View`**
 
 - `cornerRadius(_:_:)`: Clips this view to its bounding frame, with the specified corner radius.
 - `cornerRadius(_:_:)`: Clips this view to its bounding frame, with the specified corner group radius.
 - `previewDevice(_:)`: Overrides the device for a preview.
 - `previewDevices(_:)`: Overrides the devices for a preview.
+
+And the following implementations:
+
+**`Corner`**: A representation of a corner.
+
+**`CornerGroup`**: A representation of a group of corners.
+
+**`Polygon`**: A representation of a polygon.
+
 
 ## Installation
 

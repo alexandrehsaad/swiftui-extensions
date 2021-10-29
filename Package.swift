@@ -14,6 +14,6 @@ let package = Package(
 	products: [
 		.library(name: "SwiftUIExtensions", targets: ["SwiftUIExtensions"]),
 	], targets: [
-		.target(name: "SwiftUIExtensions", dependencies: [])
+		.target(name: "SwiftUIExtensions", dependencies: [], resources: [.copy("Resources")])
 	], swiftLanguageVersions: [.version("5.5")]
 )

@@ -1,4 +1,4 @@
-// AppleDevice.swift
+// AppleDevice+CustomStringConvertible.swift
 // SwiftUIExtensions
 //
 // Copyright © 2021 Alexandre H. Saad

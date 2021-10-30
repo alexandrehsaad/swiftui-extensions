@@ -7,6 +7,7 @@
 import SwiftUI
 
 /// A representation of a drag direction.
+@frozen
 public enum DragDirection: CaseIterable {
 	/// From the bottom up.
 	case bottomUp

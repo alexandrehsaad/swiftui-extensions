@@ -7,6 +7,7 @@
 import SwiftUI
 
 /// A representation of a group of corners.
+@frozen
 public enum CornerGroup {
 	/// All corners.
 	case all

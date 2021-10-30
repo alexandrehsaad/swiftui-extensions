@@ -7,6 +7,7 @@
 import SwiftUI
 
 /// A representation of a corner.
+@frozen
 public enum Corner: CaseIterable {
 	/// The bottom leading corner.
 	case bottomLeading

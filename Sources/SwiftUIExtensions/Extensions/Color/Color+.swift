@@ -16,7 +16,8 @@ extension Color {
 	/// ```
 	///
 	/// - Parameter hex: The hexadimal value.
-	public init?(hex: String) {
+	public init?<Source>(hex: Source)
+	where Source: StringProtocol {
 		var hexValue: Substring = .init(hex)
 		
 		if hexValue.hasPrefix("#") == true {
@@ -49,6 +50,20 @@ extension Color {
 		blue /= 255
 
 		self.init(red: red, green: green, blue: blue, opacity: 1)
+	}
+	
+	// TODO: isLight
+	/// A boolean value indicating whether this instance is light.
+	@available(*, unavailable)
+	public var isLight: Bool {
+		return false
+	}
+	
+	// TODO: isDark
+	/// A boolean value indicating whether this instance is dark.
+	@available(*, unavailable)
+	public var isDark: Bool {
+		return false
 	}
 	
 	// TODO: analogous
@@ -153,20 +168,6 @@ extension Color {
 	@available(tvOS, obsoleted: 15, message: "Available in SwiftUI 3")
 	@available(watchOS, obsoleted: 8, message: "Available in SwiftUI 3")
 	public static let teal: Color = .init("teal", bundle: .module)
-	
-	// TODO: isLight
-	/// A boolean value indicating whether this instance is light.
-	@available(*, unavailable)
-	public var isLight: Bool {
-		return false
-	}
-	
-	// TODO: isDark
-	/// A boolean value indicating whether this instance is dark.
-	@available(*, unavailable)
-	public var isDark: Bool {
-		return false
-	}
 	
 	// TODO: lightened
 	/// Creates a lightened variant of this color.

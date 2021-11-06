@@ -10,8 +10,8 @@ extension Image {
 	/// Creates a new instance with the specified file name and type.
 	///
 	/// - Parameters:
-	/// 	- name: The name of the file.
-	/// 	- type: The type of the file.
+	///   - name: The name of the file.
+	///   - type: The type of the file.
 	public init(name: String, type: String) {
 		#if canImport(UIKit)
 		typealias Content = UIImage

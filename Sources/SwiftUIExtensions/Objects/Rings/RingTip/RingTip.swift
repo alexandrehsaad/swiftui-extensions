@@ -16,8 +16,8 @@ struct RingTip {
 	/// Creates a new instance with the specified percent and thickness.
 	///
 	/// - Parameters:
-	///    - percent: The fraction completed.
-	///    - thickness: The thickness.
+	///   - percent: The fraction completed.
+	///   - thickness: The thickness.
 	init<Value>(completed percent: Value, thickness: CGFloat = 5)
 	where Value: BinaryFloatingPoint {
 		self.thickness = thickness

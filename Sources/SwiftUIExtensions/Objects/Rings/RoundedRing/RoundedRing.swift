@@ -8,8 +8,11 @@ import SwiftUI
 
 /// A representation of a rounded ring.
 public struct RoundedRing {
-	/// The fraction completed.
-	private var percent: CGFloat
+	/// The completed value.
+	private var value: CGFloat
+	
+	/// The total value.
+	private var total: CGFloat
 	
 	/// The thickness of this ring.
 	private let thickness: CGFloat
@@ -20,15 +23,13 @@ public struct RoundedRing {
 	/// Creates a new instance with the specified percent, thickness and gradient.
 	///
 	/// - Parameters:
-	///   - percent: The fraction completed.
+	///   - value: The completed value.
 	///   - thickness: The thickness.
 	///   - tint: The tint.
-	public init(
-		completed percent: CGFloat,
-		thickness: CGFloat = 12,
-		gradient: Gradient
-	) {
-		self.percent = percent
+	public init<Value>(value: Value, total: Value = 1, thickness: CGFloat = 12, gradient: Gradient)
+	where Value: BinaryFloatingPoint {
+		self.value = .init(value)
+		self.total = .init(total)
 		self.thickness = thickness
 		self.gradient = gradient
 	}
@@ -36,17 +37,20 @@ public struct RoundedRing {
 	/// Creates a new instance with the specified percent, thickness and tint.
 	///
 	/// - Parameters:
-	///   - percent: The fraction completed.
+	///   - value: The completed value.
 	///   - thickness: The thickness.
 	///   - tint: The tint.
-	public init(
-		completed percent: CGFloat,
-		thickness: CGFloat = 12,
-		tint: Color = .accentColor
-	) {
-		self.percent = percent
+	public init<Value>(value: Value, total: Value = 1, thickness: CGFloat = 12, tint: Color = .primary)
+	where Value: BinaryFloatingPoint {
+		self.value = .init(value)
+		self.total = .init(total)
 		self.thickness = thickness
 		self.gradient = .init(colors: [tint])
+	}
+	
+	/// The value in percent.
+	private var percent: CGFloat {
+		return self.value / self.total
 	}
 	
 	/// The gradient of the ring.
@@ -65,7 +69,7 @@ public struct RoundedRing {
 	/// The color of the ring tip.
 	private var ringTipColor: Color {
 		return self.percent == 0 || self.percent >= 1 ?
-			(self.gradient.stops.last?.color ?? .accentColor) : .clear
+			(self.gradient.stops.last?.color ?? .primary) : .clear
 	}
 }
 
@@ -73,15 +77,15 @@ public struct RoundedRing {
 
 extension RoundedRing: View {
 	public var body: some View {
-		return GeometryReader { (geometry) in
-			ZStack(alignment: .center) {
-				Ring(completed: self.percent, thickness: self.thickness)
-					.fill(self.ringGradient)
-					.shadow(radius: 2)
-				
-				RingTip(completed: self.percent, thickness: self.thickness)
-					.fill(self.ringTipColor)
-			}
+		ZStack(alignment: .center) {
+			Ring(value: self.value, total: self.total, thickness: self.thickness)
+				.fill(self.ringGradient)
+				.shadow(radius: 2)
+			
+			RingTip(value: self.value, total: self.total, thickness: self.thickness)
+				.fill(self.ringTipColor)
 		}
+		.rotationEffect(Angle(degrees: -90), anchor: .center)
+		.frame(width: 100, height: 100, alignment: .center)
 	}
 }

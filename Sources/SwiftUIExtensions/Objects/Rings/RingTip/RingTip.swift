@@ -8,8 +8,11 @@ import SwiftUI
 
 /// A representation of a ring tip.
 struct RingTip {
-	/// The fraction completed.
-	private var percent: CGFloat
+	/// The completed value.
+	private var value: CGFloat
+	
+	/// The total value.
+	private var total: CGFloat
 	
 	/// The thickness of this ring.
 	private let thickness: CGFloat
@@ -17,12 +20,18 @@ struct RingTip {
 	/// Creates a new instance with the specified percent and thickness.
 	///
 	/// - Parameters:
-	///   - percent: The fraction completed.
+	///   - value: The completed value.
 	///   - thickness: The thickness.
-	init<Value>(completed percent: Value, thickness: CGFloat = 5)
+	init<Value>(value: Value, total: Value = 1, thickness: CGFloat = 5)
 	where Value: BinaryFloatingPoint {
+		self.value = .init(value)
+		self.total = .init(total)
 		self.thickness = thickness
-		self.percent = .init(percent)
+	}
+	
+	/// The value in percent.
+	private var percent: CGFloat {
+		return self.value / self.total
 	}
 }
 
@@ -31,9 +40,9 @@ struct RingTip {
 extension RingTip: Animatable {
 	var animatableData: CGFloat {
 		get {
-			return self.percent
+			return self.value
 		} set (newValue) {
-			self.percent = newValue
+			self.value = newValue
 		}
 	}
 }
@@ -43,7 +52,7 @@ extension RingTip: Animatable {
 extension RingTip: Shape {
 	func path(in rect: CGRect) -> Path {
 		let angle: CGFloat = 360 * self.percent * .pi / 180
-		let controlRadius: CGFloat = rect.width / 2 - self.thickness
+		let controlRadius: CGFloat = rect.width / 2 - self.thickness / 2
 		let center: CGPoint = .init(x: rect.width / 2, y: rect.height / 2)
 		
 		let x: CGFloat = center.x + controlRadius * cos(angle) - self.thickness / 2
@@ -54,7 +63,5 @@ extension RingTip: Shape {
 		return Path { (path) in
 			path.addEllipse(in: ellipse)
 		}
-		.rotation(Angle(degrees: -90), anchor: .center)
-		.shape
 	}
 }

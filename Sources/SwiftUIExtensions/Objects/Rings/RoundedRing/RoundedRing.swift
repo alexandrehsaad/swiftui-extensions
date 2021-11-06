@@ -49,19 +49,8 @@ public struct RoundedRing {
 		self.gradient = .init(colors: [tint])
 	}
 	
-	/// The tint of this ring.
-	private var tint: Color {
-		return self.gradient.stops.first?.color ?? .accentColor
-	}
-	
-	/// The color of the background ring.
-	private var backgroundRingColor: Color {
-		(self.gradient.stops.first?.color ?? .accentColor)
-			.opacity(0.3)
-	}
-	
-	/// The gradient of the foreground ring.
-	private var foregroundRingGradient: AngularGradient {
+	/// The gradient of the ring.
+	private var ringGradient: AngularGradient {
 		let startAngle: Angle = Angle(degrees: 0)
 		let endAngle: Angle = Angle(degrees: 360 * .init(self.percent))
 		
@@ -73,8 +62,8 @@ public struct RoundedRing {
 		)
 	}
 	
-	/// The color of the rounded ring tip.
-	private var roundedRingTipColor: Color {
+	/// The color of the ring tip.
+	private var ringTipColor: Color {
 		return self.percent == 0 || self.percent >= 1 ?
 			(self.gradient.stops.last?.color ?? .accentColor) : .clear
 	}
@@ -86,18 +75,12 @@ extension RoundedRing: View {
 	public var body: some View {
 		return GeometryReader { (geometry) in
 			ZStack(alignment: .center) {
-				// The background ring
-				Ring(completed: 1, thickness: self.thickness)
-					.fill(self.backgroundRingColor)
-				
-				// The foreground ring
 				Ring(completed: self.percent, thickness: self.thickness)
-					.fill(self.foregroundRingGradient)
+					.fill(self.ringGradient)
 					.shadow(radius: 2)
 				
-				// The rounded ring tip.
 				RingTip(completed: self.percent, thickness: self.thickness)
-					.fill(self.roundedRingTipColor)
+					.fill(self.ringTipColor)
 			}
 		}
 	}

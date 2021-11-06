@@ -7,7 +7,7 @@
 import SwiftUI
 
 /// A representation of a ring.
-public struct Ring {
+struct Ring {
 	/// The fraction completed.
 	private var percent: CGFloat
 	
@@ -19,7 +19,7 @@ public struct Ring {
 	/// - Parameters:
 	///   - percent: The fraction completed.
 	///   - thickness: The thickness.
-	public init<Value>(completed percent: Value, thickness: CGFloat = 5)
+	init<Value>(completed percent: Value, thickness: CGFloat = 5)
 	where Value: BinaryFloatingPoint {
 		self.thickness = thickness
 		self.percent = .init(percent)
@@ -29,7 +29,7 @@ public struct Ring {
 // MARK: - Animatable
 
 extension Ring: Animatable {
-	public var animatableData: CGFloat {
+	var animatableData: CGFloat {
 		get {
 			return self.percent
 		} set (newValue) {
@@ -41,7 +41,7 @@ extension Ring: Animatable {
 // MARK: - Shape
 
 extension Ring: Shape {
-	public func path(in rect: CGRect) -> Path {
+	func path(in rect: CGRect) -> Path {
 		let width: CGFloat = rect.width
 		let height: CGFloat = rect.height
 		

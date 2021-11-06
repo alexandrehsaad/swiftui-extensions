@@ -11,7 +11,7 @@ where Content == AnyView,
 	  Label == Text,
 	  SelectionValue: CaseIterable & CustomStringConvertible & Hashable,
 	  SelectionValue.AllCases: RandomAccessCollection {
-	/// Creates a new instance with the specified title and selection.
+	/// Creates a new instance with the specified title key and selection.
 	///
 	/// - Parameters:
 	///   - titleKey: The title key.

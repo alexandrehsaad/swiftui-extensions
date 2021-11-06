@@ -58,6 +58,12 @@ The package currently provides the following implementations:
 - `init(completed:thickness:gradient:)`: Creates a new instance with the specified percent, thickness and gradient.
 - `init(completed:thickness:tint:)`: Creates a new instance with the specified percent, thickness and tint.
 
+### Styles
+
+**`OrbitalProgressStyle`**: A progress view that visually indicates its progress using an orbit.
+
+- `init(tint:)`: Creates a new instance with the specified tint.
+
 ## Installation
 
 To use this package in a SwiftPM project:

@@ -19,13 +19,28 @@ The package currently provides the following implementations:
 - `gray6`: A context-dependent sixth-level shade of grey color suitable for use in UI elements.
 - `random`: Returns a random color.
 
+**`EditMode`**
+
+- `toggle()`: Toggles the mode to its opposite value.
+
 **`Image`**
 
 - `init(name:type:)`: Creates a new instance with the specified file name and type.
 
+**`Picker`**
+
+- `init(_:selection:)`: Creates a new instance with the specified title key and selection.
+- `init(_:selection:)`: Creates a new instance with the specified title and selection.
+
 **`PreviewDevice`**
 
 - `init(_:)`: Creates a new instance with the specified Apple device.
+
+**`TextStyle`**
+
+- `defaultLeading`: The default leading used by this text style.
+- `defaultSize`:  The default size used by this text style.
+- `defaultWeight`: The default weight used by this text style.
 
 **`View`**
 

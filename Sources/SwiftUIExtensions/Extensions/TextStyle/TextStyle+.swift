@@ -8,7 +8,7 @@ import SwiftUI
 
 extension Font.TextStyle {
 	/// The default leading used by this text style.
-	public var defaultLeading: CGFloat {
+	public var defaultLeading: CGFloat? {
 		switch self {
 		case .largeTitle:
 			return 41

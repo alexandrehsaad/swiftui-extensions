@@ -77,15 +77,21 @@ public struct RoundedRing {
 
 extension RoundedRing: View {
 	public var body: some View {
-		ZStack(alignment: .center) {
-			Ring(value: self.value, total: self.total, thickness: self.thickness)
-				.fill(self.ringGradient)
-				.shadow(radius: 2)
-			
-			RingTip(value: self.value, total: self.total, thickness: self.thickness)
-				.fill(self.ringTipColor)
+		return GeometryReader { (geometry) in
+			ZStack(alignment: .center) {
+				Ring(value: self.value, total: self.total, thickness: self.thickness)
+					.fill(self.ringGradient)
+					.shadow(radius: 2)
+				
+				RingTip(value: self.value, total: self.total, thickness: self.thickness)
+					.fill(self.ringTipColor)
+			}
+			.rotationEffect(Angle(degrees: -90), anchor: .center)
+			.frame(
+				width: geometry.size.width > geometry.size.height ? geometry.size.width : geometry.size.height,
+				height: geometry.size.width > geometry.size.height ? geometry.size.width : geometry.size.height,
+				alignment: .center
+			)
 		}
-		.rotationEffect(Angle(degrees: -90), anchor: .center)
-		.frame(width: 100, height: 100, alignment: .center)
 	}
 }

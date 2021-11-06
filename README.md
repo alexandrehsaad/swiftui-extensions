@@ -64,6 +64,8 @@ The package currently provides the following implementations:
 
 **`DragDirection`**: A representation of a drag direction.
 
+**`UserInterface`**: A representation of a user interface.
+
 ### Shapes
 
 **`Polygon`**: A representation of a polygon.

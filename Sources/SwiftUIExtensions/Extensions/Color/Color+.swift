@@ -108,7 +108,7 @@ extension Color {
 		return self
 	}
 	
-	/// A random color.
+	/// Returs a random color.
 	public static var random: Color {
 		let red: UInt = .random(in: 0...255)
 		let green: UInt = .random(in: 0...255)
@@ -130,22 +130,22 @@ extension Color {
 	@available(watchOS, obsoleted: 8, message: "Available in SwiftUI 3")
 	public static let brown: Color = .init("brown", bundle: .module)
 	
-	/// A  context-dependent first-level shade of grey color suitable for use in UI elements.
+	/// A context-dependent first-level shade of grey color suitable for use in UI elements.
 	public static let gray1: Color = .init("gray_1", bundle: .module)
 	
-	/// A  context-dependent second-level shade of grey color suitable for use in UI elements.
+	/// A context-dependent second-level shade of grey color suitable for use in UI elements.
 	public static let gray2: Color = .init("gray_2", bundle: .module)
 	
-	/// A  context-dependent third-level shade of grey color suitable for use in UI elements.
+	/// A context-dependent third-level shade of grey color suitable for use in UI elements.
 	public static let gray3: Color = .init("gray_3", bundle: .module)
 	
-	/// A  context-dependent fourth-level shade of grey color suitable for use in UI elements.
+	/// A context-dependent fourth-level shade of grey color suitable for use in UI elements.
 	public static let gray4: Color = .init("gray_4", bundle: .module)
 	
-	/// A  context-dependent fifth-level shade of grey color suitable for use in UI elements.
+	/// A context-dependent fifth-level shade of grey color suitable for use in UI elements.
 	public static let gray5: Color = .init("gray_5", bundle: .module)
 	
-	/// A  context-dependent sixth-level shade of grey color suitable for use in UI elements.
+	/// A context-dependent sixth-level shade of grey color suitable for use in UI elements.
 	public static let gray6: Color = .init("gray_6", bundle: .module)
 	
 	/// A context-dependent indigo color suitable for use in UI elements.

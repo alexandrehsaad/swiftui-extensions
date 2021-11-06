@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+/// A representation of a rounded ring.
 public struct RoundedRing {
 	/// The fraction completed.
 	private var percent: CGFloat

@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+/// A representation of a ring tip.
 struct RingTip {
 	/// The fraction completed.
 	private var percent: CGFloat

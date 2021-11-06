@@ -53,11 +53,6 @@ The package currently provides the following implementations:
 
 **`Polygon`**: A representation of a polygon.
 
-**`RoundedRing`**: A representation of a rounded ring.
-
-- `init(completed:thickness:gradient:)`: Creates a new instance with the specified percent, thickness and gradient.
-- `init(completed:thickness:tint:)`: Creates a new instance with the specified percent, thickness and tint.
-
 ### Styles
 
 **`OrbitalProgressStyle`**: A progress view that visually indicates its progress using an orbit.

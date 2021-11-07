@@ -20,8 +20,8 @@ extension View {
 		alignment: Alignment = .center
 	) -> some View {
 		self.frame(
-			width: length,
-			height: length,
+			width: lengths,
+			height: lengths,
 			alignment: alignment
 		)
 	}

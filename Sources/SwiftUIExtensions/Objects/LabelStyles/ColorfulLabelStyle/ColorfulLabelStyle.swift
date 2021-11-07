@@ -46,6 +46,7 @@ extension ColorfulLabelStyle: LabelStyle {
 					.font(.footnote.weight(.semibold))
 					.foregroundColor(.white)
 			}
+			.frame(height: .zero)
 		}
 	}
 }

@@ -4,4 +4,4 @@
 
 ![alt text][asset]
 
-[asset]: Assets/video.mov "alternative text"
+[asset]: Assets/video.gif "alternative text"

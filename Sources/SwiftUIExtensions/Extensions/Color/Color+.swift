@@ -246,12 +246,12 @@ extension Color {
 	/// - Returns: The two colors layered.
 	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public func layered(with color: Self) -> Self {
-		let lhsValues = self.values
-		let rhsValues = color.values
+		let lhs = self.values
+		let rhs = color.values
 		
-		let red: CGFloat = lhsValues.red + (rhsValues.red - lhsValues.red) * rhsValues.alpha
-		let green: CGFloat = lhsValues.green + (rhsValues.green - lhsValues.green) * rhsValues.alpha
-		let blue: CGFloat = lhsValues.blue + (rhsValues.blue - lhsValues.blue) * rhsValues.alpha
+		let red: CGFloat = lhs.red + (rhs.red - lhs.red) * rhs.alpha
+		let green: CGFloat = lhs.green + (rhs.green - lhs.green) * rhs.alpha
+		let blue: CGFloat = lhs.blue + (rhs.blue - lhs.blue) * rhs.alpha
 		
 		return .init(red: red, green: green, blue: blue)
 	}

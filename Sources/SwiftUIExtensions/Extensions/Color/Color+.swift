@@ -52,10 +52,11 @@ extension Color {
 		self.init(red: red, green: green, blue: blue, opacity: 1)
 	}
 	
+	public typealias Component = (red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8)
+	
 	/// The RGBA values of this color.
-	@available(*, deprecated, renamed: "values")
 	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
-	public var rgbValues: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+	public var values: Self.Component {
 		var red: CGFloat = 0
 		var green: CGFloat = 0
 		var blue: CGFloat = 0
@@ -69,27 +70,17 @@ extension Color {
 		
 		Content(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
 		
-		return (red, green, blue, alpha)
-	}
-	
-	/// The RGBA values of this color.
-	public var values: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
-		var hexValue: Substring = .init(self.description)
+		red *= 255
+		green *= 255
+		blue *= 255
+		alpha *= 100
 		
-		if hexValue.hasPrefix("#") == true {
-			hexValue = hexValue.dropFirst()
-		}
+		red.round(.toNearestOrAwayFromZero)
+		green.round(.toNearestOrAwayFromZero)
+		blue.round(.toNearestOrAwayFromZero)
+		alpha.round(.toNearestOrAwayFromZero)
 		
-		guard let value: UInt = .init(hexValue, radix: 16), hexValue.count == 8 else {
-			return nil
-		}
-
-		let red: CGFloat = .init(value >> 24)
-		let green: CGFloat = .init(value >> 16 & 0xFF)
-		let blue: CGFloat = .init(value >> 8 & 0xFF)
-		let alpha: CGFloat = .init(value & 0xFF) / 2.55
-		
-		return (red, green, blue, alpha)
+		return (.init(red), .init(green), .init(blue), .init(alpha))
 	}
 	
 	// TODO: isLight
@@ -114,15 +105,14 @@ extension Color {
 	}
 	
 	/// Returns the complementary variant of this color, or in other terms its opposite.
+	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public var complementary: Self {
-		guard let values = self.values else {
-			return .black
-		}
+		let values: Self.Component = self.values
 		
-		let red: CGFloat = 1 - values.red
-		let green: CGFloat = 1 - values.green
-		let blue: CGFloat = 1 - values.blue
-		let alpha: CGFloat = values.alpha
+		let red: CGFloat = 255 - .init(values.red)
+		let green: CGFloat = 255 - .init(values.green)
+		let blue: CGFloat = 255 - .init(values.blue)
+		let alpha: CGFloat = .init(values.alpha)
 		
 		return .init(red: red, green: green, blue: blue, opacity: alpha)
 	}
@@ -220,34 +210,18 @@ extension Color {
 	///
 	/// - Parameter factor: The lightening factor.
 	/// - Returns: The color lightened.
+	@available(*, unavailable)
 	public func lightened(by factor: CGFloat) -> Self {
-		guard let values = self.values else {
-			return .black
-		}
-		
-		let red: CGFloat = values.red * (1 - factor)
-		let green: CGFloat = values.green * (1 - factor)
-		let blue: CGFloat = values.blue * (1 - factor)
-		let alpha: CGFloat = values.alpha
-		
-		return .init(red: red, green: green, blue: blue, opacity: alpha)
+		return self
 	}
 	
 	/// Returns a darkened variant of this color by the specified factor.
 	///
 	/// - Parameter factor: The darkening factor.
 	/// - Returns: The color darkened.
+	@available(*, unavailable)
 	public func darkened(by factor: CGFloat) -> Self {
-		guard let values = self.values else {
-			return .black
-		}
-		
-		let red: CGFloat = values.red + (255 - values.red) * factor
-		let green: CGFloat = values.green + (255 - values.green) * factor
-		let blue: CGFloat = values.blue + (255 - values.blue) * factor
-		let alpha: CGFloat = values.alpha
-		
-		return .init(red: red, green: green, blue: blue, opacity: alpha)
+		return self
 	}
 	
 	// TODO: saturated
@@ -268,15 +242,15 @@ extension Color {
 	///
 	/// - Parameter color: The color to layer on top.
 	/// - Returns: The two colors layered.
+	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public func layered(below color: Self) -> Self {
-		guard let lhs = self.values, let rhs = color.values else {
-			return .black
-		}
+		let lhs = self.values
+		let rhs = color.values
 		
-		let red: CGFloat = lhs.red + (rhs.red - lhs.red) * rhs.alpha
-		let green: CGFloat = lhs.green + (rhs.green - lhs.green) * rhs.alpha
-		let blue: CGFloat = lhs.blue + (rhs.blue - lhs.blue) * rhs.alpha
+		let red: UInt8 = lhs.red + (rhs.red - lhs.red) * rhs.alpha
+		let green: UInt8 = lhs.green + (rhs.green - lhs.green) * rhs.alpha
+		let blue: UInt8 = lhs.blue + (rhs.blue - lhs.blue) * rhs.alpha
 		
-		return .init(red: red, green: green, blue: blue)
+		return .init(red: .init(red), green: .init(green), blue: .init(blue))
 	}
 }

@@ -11,6 +11,8 @@ The package currently provides the following implementations:
 **`Color`**
 
 - `init(hex:)`: Creates a new instance with the specified hexadecimal value.
+- `values`: The RGBA values of this color.
+- `complementary`: Returns the complementary variant of this color, or in other terms its opposite.
 - `gray1`: A context-dependent first-level shade of grey color suitable for use in UI elements.
 - `gray2`: A context-dependent second-level shade of grey color suitable for use in UI elements.
 - `gray3`: A context-dependent third-level shade of grey color suitable for use in UI elements.
@@ -18,6 +20,9 @@ The package currently provides the following implementations:
 - `gray5`: A context-dependent fifth-level shade of grey color suitable for use in UI elements.
 - `gray6`: A context-dependent sixth-level shade of grey color suitable for use in UI elements.
 - `random`: Returns a random color.
+- `lightened(by:)`: Returns a lightened variant of this color by the specified factor.
+- `darkened(by:)`: Returns a darkened variant of this color by the specified factor.
+- `layered(below:)`: Returns this color layered below the specified color.
 
 **`EditMode`**
 

@@ -86,13 +86,13 @@ extension Color {
 	}
 	
 	// TODO: analogous
-	/// Creates the analogous variant of this color.
+	/// Returns the analogous variant of this color.
 	@available(*, unavailable)
 	public var analogous: Self? {
 		return self
 	}
 	
-	/// Creates the complementary variant of this color, or in other terms its opposite.
+	/// Returns the complementary variant of this color, or in other terms its opposite.
 	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public var complementary: Self {
 		let values = self.values
@@ -106,46 +106,31 @@ extension Color {
 	}
 	
 	// TODO: monochromatic
-	/// Creates the monochromatic variant of this color.
+	/// Returns the monochromatic variant of this color.
 	@available(*, unavailable)
 	public var monochromatic: Self {
 		return self
 	}
 	
 	// TODO: split complimentary
-	/// Creates the split complimentary variant of this color.
+	/// Returns the split complimentary variant of this color.
 	@available(*, unavailable)
 	public var splitComplimentary: Self {
 		return self
 	}
 	
 	// TODO: triadic
-	/// Creates the triadic variant of this color.
+	/// Returns the triadic variant of this color.
 	@available(*, unavailable)
 	public var triadic: Self {
 		return self
 	}
 	
 	// TODO: tetradic
-	/// Creates the tetradic variant of this color.
+	/// Returns the tetradic variant of this color.
 	@available(*, unavailable)
 	public var tetradic: Self {
 		return self
-	}
-	
-	/// Returs a random color.
-	public static var random: Self {
-		let red: UInt = .random(in: 0...255)
-		let green: UInt = .random(in: 0...255)
-		let blue: UInt = .random(in: 0...255)
-		
-		return .init(
-			.sRGB,
-			red: .init(red) / 255,
-			green: .init(green) / 255,
-			blue: .init(blue) / 255,
-			opacity: 1
-		)
 	}
 	
 	/// A context-dependent brown color suitable for use in UI elements.
@@ -194,7 +179,22 @@ extension Color {
 	@available(watchOS, obsoleted: 8, message: "Available in SwiftUI 3")
 	public static let teal: Self = .init("teal", bundle: .module)
 	
-	/// Creates a lightened variant of this color by the specified factor.
+	/// Returs a random color.
+	public static var random: Self {
+		let red: UInt = .random(in: 0...255)
+		let green: UInt = .random(in: 0...255)
+		let blue: UInt = .random(in: 0...255)
+		
+		return .init(
+			.sRGB,
+			red: .init(red) / 255,
+			green: .init(green) / 255,
+			blue: .init(blue) / 255,
+			opacity: 1
+		)
+	}
+	
+	/// Returns a lightened variant of this color by the specified factor.
 	///
 	/// - Parameter factor: The lightening factor.
 	/// - Returns: The color lightened.
@@ -210,7 +210,7 @@ extension Color {
 		return .init(red: red, green: green, blue: blue, opacity: alpha)
 	}
 	
-	/// Creates a darkened variant of this color by the specified factor.
+	/// Returns a darkened variant of this color by the specified factor.
 	///
 	/// - Parameter factor: The darkening factor.
 	/// - Returns: The color darkened.
@@ -227,25 +227,25 @@ extension Color {
 	}
 	
 	// TODO: saturated
-	/// Creates a saturated variant of this color.
+	/// Returns a saturated variant of this color.
 	@available(*, unavailable)
 	public func saturated() -> Self {
 		return self
 	}
 	
 	// TODO: desaturated
-	/// Creates a desaturated variant of this color.
+	/// Returns a desaturated variant of this color.
 	@available(*, unavailable)
 	public func desaturated() -> Self {
 		return self
 	}
 	
-	/// Returns this color layered with the specified color.
+	/// Returns this color layered below the specified color.
 	///
 	/// - Parameter color: The color to layer on top.
 	/// - Returns: The two colors layered.
 	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
-	public func layered(with color: Self) -> Self {
+	public func layered(below color: Self) -> Self {
 		let lhs = self.values
 		let rhs = color.values
 		

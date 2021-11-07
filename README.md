@@ -72,6 +72,10 @@ The package currently provides the following implementations:
 
 ### Styles
 
+**`ColorfulLabelStyle`**: A label style that shows both the title and icon of the label using a system-standard layout.
+
+- `init(tint:)`: Creates a new instance with the specified tint.
+
 **`OrbitalProgressStyle`**: A progress view that visually indicates its progress using an orbit.
 
 - `init(tint:)`: Creates a new instance with the specified tint.

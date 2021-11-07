@@ -53,8 +53,9 @@ extension Color {
 	}
 	
 	/// The RGBA values of this color.
+	@available(*, deprecated, renamed: "values")
 	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
-	public var values: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+	public var rgbValues: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
 		var red: CGFloat = 0
 		var green: CGFloat = 0
 		var blue: CGFloat = 0
@@ -67,6 +68,26 @@ extension Color {
 		#endif
 		
 		Content(self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+		
+		return (red, green, blue, alpha)
+	}
+	
+	/// The RGBA values of this color.
+	public var values: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat)? {
+		var hexValue: Substring = .init(self.description)
+		
+		if hexValue.hasPrefix("#") == true {
+			hexValue = hexValue.dropFirst()
+		}
+		
+		guard let value: UInt = .init(hexValue, radix: 16), hexValue.count == 8 else {
+			return nil
+		}
+
+		let red: CGFloat = .init(value >> 24)
+		let green: CGFloat = .init(value >> 16 & 0xFF)
+		let blue: CGFloat = .init(value >> 8 & 0xFF)
+		let alpha: CGFloat = .init(value & 0xFF) / 2.55
 		
 		return (red, green, blue, alpha)
 	}
@@ -93,9 +114,10 @@ extension Color {
 	}
 	
 	/// Returns the complementary variant of this color, or in other terms its opposite.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public var complementary: Self {
-		let values = self.values
+		guard let values = self.values else {
+			return .black
+		}
 		
 		let red: CGFloat = 1 - values.red
 		let green: CGFloat = 1 - values.green
@@ -198,9 +220,10 @@ extension Color {
 	///
 	/// - Parameter factor: The lightening factor.
 	/// - Returns: The color lightened.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public func lightened(by factor: CGFloat) -> Self {
-		let values = self.values
+		guard let values = self.values else {
+			return .black
+		}
 		
 		let red: CGFloat = values.red * (1 - factor)
 		let green: CGFloat = values.green * (1 - factor)
@@ -214,9 +237,10 @@ extension Color {
 	///
 	/// - Parameter factor: The darkening factor.
 	/// - Returns: The color darkened.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public func darkened(by factor: CGFloat) -> Self {
-		let values = self.values
+		guard let values = self.values else {
+			return .black
+		}
 		
 		let red: CGFloat = values.red + (255 - values.red) * factor
 		let green: CGFloat = values.green + (255 - values.green) * factor
@@ -244,10 +268,10 @@ extension Color {
 	///
 	/// - Parameter color: The color to layer on top.
 	/// - Returns: The two colors layered.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public func layered(below color: Self) -> Self {
-		let lhs = self.values
-		let rhs = color.values
+		guard let lhs = self.values, let rhs = color.values else {
+			return .black
+		}
 		
 		let red: CGFloat = lhs.red + (rhs.red - lhs.red) * rhs.alpha
 		let green: CGFloat = lhs.green + (rhs.green - lhs.green) * rhs.alpha

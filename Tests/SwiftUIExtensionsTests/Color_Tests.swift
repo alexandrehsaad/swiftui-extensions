@@ -24,4 +24,15 @@ final class Color_Tests: XCTestCase {
 		XCTAssertEqual(red, hex6)
 		XCTAssertEqual(red, hex6H)
 	}
+	
+	func test_Values_Succeeds() {
+		// Given
+		let red: Color = .init(red: 1, green: 0, blue: 0)
+		
+		// Then
+		XCTAssertEqual(red.values!.red, 255)
+		XCTAssertEqual(red.values!.green, 0)
+		XCTAssertEqual(red.values!.blue, 0)
+		XCTAssertEqual(red.values!.alpha, 100)
+	}
 }

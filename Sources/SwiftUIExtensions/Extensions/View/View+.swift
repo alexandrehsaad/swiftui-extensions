@@ -7,6 +7,51 @@
 import SwiftUI
 
 extension View {
+	/// Positions this view within an invisible frame with the specified size.
+	///
+	/// - Parameters:
+	///   - lenths: A fixed width and height for the resulting view.
+	///   If is `nil`, the resulting view assumes this view's sizing behavior.
+	///   - alignment: The alignment of this view inside the resulting view.
+	///   Only  applies if this view is smaller than the size given by the resulting frame.
+	/// - Returns: A view with fixed dimensions.
+	public func frame(
+		lengths: CGFloat? = nil,
+		alignment: Alignment = .center
+	) -> some View {
+		self.frame(
+			width: length,
+			height: length,
+			alignment: alignment
+		)
+	}
+	
+	/// Positions this view within an invisible frame having the specified size constraints.
+	///
+	/// - Parameters:
+	///   - minLengths: The minimum lengths of the resulting frame.
+	///   - idealLengths: The ideal lengths of the resulting frame.
+	///   - maxLengths: The maximum lengths of the resulting frame.
+	///   - alignment: The alignment of this view inside the resulting view.
+	///   Only  applies if this view is smaller than the size given by the resulting frame.
+	/// - Returns: A view with fixed dimensions.
+	public func frame(
+		minLengths: CGFloat? = nil,
+		idealLengths: CGFloat? = nil,
+		maxLengths: CGFloat? = nil,
+		alignment: Alignment = .center
+	) -> some View {
+		self.frame(
+			minWidth: minLengths,
+			idealWidth: idealLengths,
+			maxWidth: maxLengths,
+			minHeight: minLengths,
+			idealHeight: idealLengths,
+			maxHeight: maxLengths,
+			alignment: alignment
+		)
+	}
+	
 	/// Adds a condition that controls whether this view is interactable.
 	///
 	/// - Parameter isEnabled: A boolean value.

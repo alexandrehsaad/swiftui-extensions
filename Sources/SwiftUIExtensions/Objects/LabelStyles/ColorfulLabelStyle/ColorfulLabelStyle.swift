@@ -6,8 +6,9 @@
 
 import SwiftUI
 
+// TODO: test on other platforms
 /// A label style that shows both the title and icon of the label using a system-standard layout.
-@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
+@available(iOS 14, *)
 struct ColorfulLabelStyle {
 	/// The tint of this label.
 	var tint: Color
@@ -31,7 +32,7 @@ struct ColorfulLabelStyle {
 
 // MARK: - LabelStyle
 
-@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
+@available(iOS 14, *)
 extension ColorfulLabelStyle: LabelStyle {
 	func makeBody(configuration: Configuration) -> some View {
 		return Label {

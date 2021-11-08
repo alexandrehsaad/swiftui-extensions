@@ -9,15 +9,15 @@ import SwiftUI
 /// A representation of the type of tweet.
 @available(iOS 15, *)
 @frozen
-enum TweetType {
+public enum TweetType {
 	/// The latest tweet.
 	case latest
 	
+	/// The pinned tweet.
+	case pinned
+	
 	var symbol: String {
-		switch self {
-		case .latest:
-			return "number"
-		}
+		return "number"
 	}
 	
 	var color: Color {
@@ -33,6 +33,8 @@ extension TweetType: CustomStringConvertible {
 		switch self {
 		case .latest:
 			return "Latest Tweet"
+		case .pinned:
+			return "Pinned Tweet"
 		}
 	}
 }

@@ -9,13 +9,21 @@ import SwiftUI
 /// A representation of a tweet view.
 @available(iOS 15, *)
 public struct TweetView {
-	/// The tweet of this view.
-	private let tweet: Tweet
+	/// The tweet type.
+	private let tweetType: TweetType
 	
-	/// Creates a new instance with the specified tweet.
-	public init(_ tweet: Tweet) {
-		self.tweet = tweet
+	/// Creates a new instance with the specified tweet type and Twitter username.
+	///
+	/// - Parameters:
+	///   - tweetType: The tweet type.
+	///   - username: The Twitter user name.
+	public init(_ tweetType: TweetType, from username: String) {
+		self.tweetType = tweetType
 	}
+	
+	/// The Twitter API manager.
+	@ObservedObject
+	private var twitter: TwitterManager = .init()
 	
 	/// A boolean value indicating whether this view is expanded.
 	@State
@@ -44,16 +52,16 @@ extension TweetView: View {
 					
 					VStack(alignment: .leading, spacing: 2) { // FIXME: spacing
 						HStack(alignment: .center, spacing: 4) { // FIXME: spacing
-							Text("John Doe") // TODO: name
+							Text(self.twitter.tweet?.user.name ?? TwitterUser.placeholder.name)
 								.font(.footnote)
 								.fontWeight(.semibold)
 							
-							Text("@johndoe") // TODO: username
+							Text(self.twitter.tweet?.user.username ?? TwitterUser.placeholder.username)
 								.font(.footnote)
 								.foregroundColor(.secondary)
 						}
 						
-						Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+						Text(self.twitter.tweet?.content ?? Tweet.placeholder.content)
 							.font(.footnote)
 							.allowsTightening(true)
 							.multilineTextAlignment(.leading)
@@ -68,6 +76,9 @@ extension TweetView: View {
 			}
 		} label: {
 			self.header(.latest)
+		}
+		.onAppear {
+			// TODO: fetch tweet type from the specified user
 		}
 	}
 }

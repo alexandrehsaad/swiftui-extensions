@@ -4,10 +4,15 @@
 // Copyright © 2021 Alexandre H. Saad
 //
 
+import Foundation
+
 /// A representation of a Twitter user.
 struct TwitterUser {
 	/// The id of this user.
 	let id: UInt
+	
+	/// The photo of this user.
+	let photo: URL?
 	
 	/// The name of this user.
 	let name: String
@@ -29,11 +34,13 @@ struct TwitterUser {
 	///   - biography: The biography.
 	init(
 		id: UInt,
+		photo: URL?,
 		name: String,
 		username: String,
 		biography: String
 	) {
 		self.id = id
+		self.photo = photo
 		self.name = name
 		self.username = username
 		self.biography = biography
@@ -42,6 +49,7 @@ struct TwitterUser {
 	/// A placeholder Twitter user.
 	static let placeholder: Self = .init(
 		id: .zero,
+		photo: nil,
 		name: "John Doe",
 		username: "@johndoe",
 		biography: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

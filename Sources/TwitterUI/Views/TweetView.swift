@@ -17,7 +17,7 @@ public struct TweetView {
 	/// - Parameters:
 	///   - tweetType: The tweet type.
 	///   - username: The Twitter user name.
-	public init(_ tweetType: TweetType, from username: String) {
+	public init(_ tweetType: TweetType = .latest, from username: String) {
 		self.tweetType = tweetType
 	}
 	
@@ -45,10 +45,16 @@ extension TweetView: View {
 		return GroupBox {
 			VStack(alignment: .center, spacing: .zero) {
 				HStack(alignment: .top, spacing: .zero) {
-					Image(systemName: "person.circle.fill") // TODO: photo
-						.font(.largeTitle)
-						.padding(.trailing)
-						.foregroundColor(.secondary)
+					if let url: URL = self.twitter.tweet?.user.photo {
+						AsyncImage(url: url)
+							.font(.largeTitle)
+							.padding(.trailing)
+					} else {
+						Image(systemName: "person.circle.fill")
+							.font(.largeTitle)
+							.foregroundColor(.secondary)
+							.padding(.trailing)
+					}
 					
 					VStack(alignment: .leading, spacing: 2) { // FIXME: spacing
 						HStack(alignment: .center, spacing: 4) { // FIXME: spacing
@@ -88,7 +94,7 @@ extension TweetView {
 	/// The header of this view.
 	private func header(_ type: TweetType) -> some View {
 		return HStack(alignment: .center, spacing: .zero) {
-			/// Label View
+			// Label View
 			Label {
 				Text(type.description)
 			} icon: {
@@ -99,10 +105,12 @@ extension TweetView {
 		
 			Spacer()
 			
-			/// Date View
-			Text(Date(), style: .time) // TODO: date
-				.font(.caption)
-				.foregroundColor(.secondary)
+			// Date View
+			if let date: Date = self.twitter.tweet?.date {
+				Text(date, style: .time)
+					.font(.caption)
+					.foregroundColor(.secondary)
+			}
 		}
 		.padding(.bottom, 8)
 	}

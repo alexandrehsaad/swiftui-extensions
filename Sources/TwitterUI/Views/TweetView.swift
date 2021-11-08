@@ -46,9 +46,14 @@ extension TweetView: View {
 			VStack(alignment: .center, spacing: .zero) {
 				HStack(alignment: .top, spacing: .zero) {
 					if let url: URL = self.twitter.tweet?.user.photo {
-						AsyncImage(url: url)
-							.font(.largeTitle)
-							.padding(.trailing)
+						AsyncImage(url: url) { (image) in
+							image
+								.font(.largeTitle)
+								.padding(.trailing)
+						} placeholder: {
+							ProgressView()
+								.progressViewStyle(CircularProgressViewStyle())
+						}
 					} else {
 						Image(systemName: "person.circle.fill")
 							.font(.largeTitle)

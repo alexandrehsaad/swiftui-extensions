@@ -18,4 +18,16 @@ public struct OnboardingItem: Identifiable {
 	
 	/// The subtitle of this item.
 	let subtitle: String
+	
+	/// Creates a new instance with the specified symbol, title and subtitle.
+	///
+	/// - Parameters:
+	///   - symbol: The system name symbol.
+	///   - title: The title text.
+	///   - subtitle: The subtitle text.
+	public init(symbol: String, title: String, subtitle: String) {
+		self.symbol = symbol
+		self.title = title
+		self.subtitle = subtitle
+	}
 }

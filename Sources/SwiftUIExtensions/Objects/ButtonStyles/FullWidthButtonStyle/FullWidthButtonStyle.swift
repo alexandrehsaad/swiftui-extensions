@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-/// A button style that applies standard border prominent artwork based on the button’s context.
+/// A button style that applies full width border prominent artwork based on the button’s context.
 public struct FullWidthButtonStyle {
 	/// Creates a new instance.
 	public init() {}

@@ -22,12 +22,7 @@ extension NavigationView {
 		terms: String? = nil
 	) -> some View {
 		return self.sheet(isPresented: isOnboardable) {
-			OnboardingView(
-				   isOnboardable,
-				   title: title,
-				   items: items,
-				   terms: terms
-			   )
-		   }
+			OnboardingView(isOnboardable, title: title, items: items, terms: terms)
+	   }
 	}
 }

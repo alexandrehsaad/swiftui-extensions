@@ -1,10 +1,8 @@
 // TweetMetric.swift
-// SwiftUI Extensions
+// SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
 //
-
-import SwiftUI
 
 /// A representation of the metric of a tweet.
 @frozen

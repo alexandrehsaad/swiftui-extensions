@@ -1,10 +1,8 @@
 // TweetType.swift
-// SwiftUI Extensions
+// SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
 //
-
-import SwiftUI
 
 /// A representation of the type of tweet.
 @available(iOS 15, *)

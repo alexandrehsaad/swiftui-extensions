@@ -12,11 +12,9 @@ let package = Package(
 //		.watchOS(.v6)
 	],
 	products: [
-		.library(name: "TwitterUI", targets: ["TwitterUI"]),
-		.library(name: "SwiftUIX", targets: ["SwiftUIExtensions"])
+		.library(name: "SwiftUIX", targets: ["SwiftUIX"])
 	], targets: [
-		.target(name: "TwitterUI", dependencies: []),
-		.target(name: "SwiftUIExtensions", dependencies: []),
-		.testTarget(name: "SwiftUIExtensionsTests", dependencies: ["SwiftUIExtensions"])
+		.target(name: "SwiftUIX", dependencies: []),
+		.testTarget(name: "SwiftUIXTests", dependencies: ["SwiftUIX"])
 	], swiftLanguageVersions: [.version("5.5")]
 )

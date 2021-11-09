@@ -1,6 +1,6 @@
 # swiftui-extensions
 
-**SwiftUI Extensions** is an umpteenth package containing extensions for Apple's SwiftUI framework.
+**SwiftUIX** is an umpteenth package containing extensions for Apple's SwiftUI framework.
 
 ## Content
 
@@ -118,7 +118,7 @@ let package = Package(
     ...
     targets: [
         .target(name: "MyTarget", dependencies: [
-            .product(name: "SwiftUIExtensions", package: "swiftui-extensions")
+            .product(name: "SwiftUIX", package: "swiftui-extensions")
         ]),
     ],
     ...

@@ -6,7 +6,9 @@
 
 import SwiftUI
 
+// TODO: test on other platforms
 /// A button style that applies full width border prominent artwork based on the button’s context.
+@available(iOS 15, *)
 public struct FullWidthButtonStyle {
 	/// Creates a new instance.
 	public init() {}

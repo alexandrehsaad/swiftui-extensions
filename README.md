@@ -128,7 +128,7 @@ let package = Package(
 3. Import the package in your source code.
 
 ```swift
-import SwiftUIExtensions
+import SwiftUIX
 ```
 
 ## Contribution

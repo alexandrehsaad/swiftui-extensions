@@ -52,7 +52,7 @@ extension TweetView: View {
 								.padding(.trailing)
 						} placeholder: {
 							ProgressView()
-								.progressViewStyle(CircularProgressViewStyle())
+								.progressViewStyle(.circular)
 						}
 					} else {
 						Image(systemName: "person.circle.fill")

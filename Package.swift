@@ -13,7 +13,7 @@ let package = Package(
 	],
 	products: [
 		.library(name: "TwitterUI", targets: ["TwitterUI"]),
-		.library(name: "SwiftUIExtensions", targets: ["SwiftUIExtensions"])
+		.library(name: "SwiftUIX", targets: ["SwiftUIExtensions"])
 	], targets: [
 		.target(name: "TwitterUI", dependencies: []),
 		.target(name: "SwiftUIExtensions", dependencies: []),

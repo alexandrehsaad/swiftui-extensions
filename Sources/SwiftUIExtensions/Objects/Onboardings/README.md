@@ -2,10 +2,11 @@
 
 ## Tutorial
 
-1. Import SwiftUI.
+1. Import SwiftUI and SwiftUIX.
 
 ```swift
 import SwiftUI
+import SwiftUIX
 ```
 
 2. Implement MyApp:
@@ -24,13 +25,13 @@ import SwiftUI
 
 ```swift
 struct ContentView {
-	@State var isOnboardable = true
+    @State var isOnboardable = true
 	
-	let items = [
-		OnboardingItem(symbol: "circle", title: "My title", subtitle: "My subtitle.")
-	]
+    let items = [
+        OnboardingItem(symbol: "circle", title: "My title", subtitle: "My subtitle.")
+    ]
 	
-	let terms = "My terms"
+    let terms = "My terms"
 }
 ```
 
@@ -39,10 +40,10 @@ struct ContentView {
 ```swift
 extension ContentView: View {
     var body: some View {
-		NavigationView {
-			Text("Hello, World!")
-		}
-		.onboardable($isOnboardable, items: items, terms: terms)
+        NavigationView {
+            Text("Hello, World!")
+        }
+        .onboardable($isOnboardable, items: items, terms: terms)
     }
 }
 ```

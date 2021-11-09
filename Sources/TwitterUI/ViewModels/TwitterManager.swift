@@ -8,7 +8,6 @@ import Combine
 import Foundation
 
 /// A representation of a Twitter API manager.
-@available(iOS 15, *)
 final class TwitterManager: ObservableObject {
 	/// Creates a new instance.
 	init() {}

@@ -7,7 +7,6 @@
 import SwiftUI
 
 /// A representation of an onboarding view.
-@available(iOS 14, *)
 struct OnboardingView {
 	/// A boolean value indicating whether this sheet is presented.
 	@Binding
@@ -53,7 +52,6 @@ struct OnboardingView {
 
 // MARK: - View
 
-@available(iOS 14, *)
 extension OnboardingView: View {
 	var body: some View {
 		return VStack(alignment: .center, spacing: 8) {
@@ -115,7 +113,6 @@ extension OnboardingView: View {
 	}
 }
 
-@available(iOS 14, *)
 extension OnboardingView {
 	/// The footer of this view.
 	private var footer: some View {

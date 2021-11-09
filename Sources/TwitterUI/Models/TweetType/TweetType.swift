@@ -5,7 +5,6 @@
 //
 
 /// A representation of the type of tweet.
-@available(iOS 15, *)
 @frozen
 public enum TweetType {
 	/// The latest tweet.
@@ -25,7 +24,6 @@ public enum TweetType {
 
 // MARK: - CustomStringConvertible
 
-@available(iOS 15, *)
 extension TweetType: CustomStringConvertible {
 	public var description: String {
 		switch self {

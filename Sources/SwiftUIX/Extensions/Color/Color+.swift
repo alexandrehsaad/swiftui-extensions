@@ -55,7 +55,6 @@ extension Color {
 	public typealias Component = (red: UInt8, green: UInt8, blue: UInt8, alpha: UInt8)
 	
 	/// The RGBA values of this color.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public var values: Self.Component {
 		var red: CGFloat = 0
 		var green: CGFloat = 0
@@ -105,7 +104,6 @@ extension Color {
 	}
 	
 	/// Returns the complementary variant of this color, or in other terms its opposite.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public var complementary: Self {
 		let values: Self.Component = self.values
 		
@@ -242,7 +240,6 @@ extension Color {
 	///
 	/// - Parameter color: The color to layer on top.
 	/// - Returns: The two colors layered.
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	public func layered(below color: Self) -> Self {
 		let lhs = self.values
 		let rhs = color.values

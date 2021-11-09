@@ -12,7 +12,6 @@
 /// ```
 ///
 /// - Note: You can get a list of supported devices by using the `xcrun` command in the Terminal app:
-@available(iOS 13, watchOS 6, *)
 public enum AppleDevice {
 	/// An Apple watch.
 	@available(*, deprecated)

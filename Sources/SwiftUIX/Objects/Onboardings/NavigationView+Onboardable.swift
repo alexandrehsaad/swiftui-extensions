@@ -14,7 +14,6 @@ extension NavigationView {
 	///   - onboardingType: The onboarding type.
 	///   - items: The onboarding items.
 	///   - terms: The terms in the footer.
-	@available(iOS 14, *)
 	public func onboardable(
 		_ isOnboardable: Binding<Bool>,
 		title: OnboardingType = .welcome,

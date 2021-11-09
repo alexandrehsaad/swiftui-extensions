@@ -7,7 +7,6 @@
 import SwiftUI
 
 /// A representation of a tweet view.
-@available(iOS 15, *)
 public struct TweetView {
 	/// The tweet type.
 	private let tweetType: TweetType
@@ -39,7 +38,6 @@ public struct TweetView {
 
 // MARK: - View
 
-@available(iOS 15, *)
 extension TweetView: View {
 	public var body: some View {
 		return GroupBox {
@@ -94,7 +92,6 @@ extension TweetView: View {
 	}
 }
 
-@available(iOS 15, *)
 extension TweetView {
 	/// The header of this view.
 	private func header(_ type: TweetType) -> some View {

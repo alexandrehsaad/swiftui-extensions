@@ -8,7 +8,6 @@ import SwiftUI
 
 // TODO: test on other platforms
 /// A progress view that visually indicates its progress using an orbit.
-@available(iOS 15, macOS 12, *)
 public struct OrbitalProgressStyle {
 	/// The tint of this progress view.
 	private let tint: Color
@@ -21,7 +20,6 @@ public struct OrbitalProgressStyle {
 
 // MARK: - ProgressViewStyle
 
-@available(iOS 15, macOS 12, *)
 extension OrbitalProgressStyle: ProgressViewStyle {
 	public func makeBody(configuration: Configuration) -> some View {
 		return Label {

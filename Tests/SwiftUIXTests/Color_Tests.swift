@@ -25,7 +25,6 @@ final class Color_Tests: XCTestCase {
 		XCTAssertEqual(red, hex6H)
 	}
 	
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	func test_Values_Succeeds() {
 		// Given
 		let red: Color = .init(red: 1, green: 0, blue: 0)
@@ -37,7 +36,6 @@ final class Color_Tests: XCTestCase {
 		XCTAssertEqual(red.values.alpha, 100)
 	}
 	
-	@available(iOS 14, macOS 11, tvOS 14, watchOS 7, *)
 	func test_Complementary_Succeeds() {
 		// Given
 		let white: Color = .white

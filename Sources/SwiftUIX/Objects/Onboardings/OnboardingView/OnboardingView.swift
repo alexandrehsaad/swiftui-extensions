@@ -45,7 +45,7 @@ struct OnboardingView {
 		self.isOnboardable.toggle()
 	}
 	
-	///
+	// TODO: make a modifier
 	@State
 	private var symbolMaxSize: CGFloat?
 }
@@ -55,6 +55,7 @@ struct OnboardingView {
 extension OnboardingView: View {
 	var body: some View {
 		#if os(iOS)
+		
 		return VStack(alignment: .center, spacing: 8) {
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(alignment: .center, spacing: 24) {
@@ -157,6 +158,7 @@ extension OnboardingView: View {
 		}
 		.navigationBarTitleDisplayMode(.inline)
 		.navigationTitle("")
+		
 		#endif
 	}
 }

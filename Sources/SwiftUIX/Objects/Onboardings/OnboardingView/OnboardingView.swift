@@ -47,59 +47,53 @@ struct OnboardingView {
 	
 	///
 	@State
-	private var buttonMaxWidth: CGFloat?
+	private var symbolMaxSize: CGFloat?
 }
 
 // MARK: - View
 
 extension OnboardingView: View {
 	var body: some View {
+		#if os(iOS)
 		return VStack(alignment: .center, spacing: 8) {
 			ScrollView(.vertical, showsIndicators: false) {
 				VStack(alignment: .center, spacing: 24) {
-					Text(self.title.description)
-						.font(.largeTitle)
-						.fontWeight(.bold)
-						.multilineTextAlignment(.center)
-						.padding(.vertical)
-						.padding(.vertical)
+					self.header
 					
-					// Onboarding Check List
-					VStack(alignment: .leading, spacing: 24) {
-						ForEach(self.items) { (item) in
-							HStack(alignment: .top, spacing: .zero) {
-								Image(systemName: item.symbol)
-									.font(.largeTitle)
-									.foregroundColor(.accentColor)
-									.padding(.horizontal)
-									.background(
-										GeometryReader { (geometry) in
-											Color.clear
-												.preference(
-													key: MaxPreferenceKey.self,
-													value: geometry.size.width
-												)
-										}
-									)
-									.frame(width: self.buttonMaxWidth)
-									.onPreferenceChange(MaxPreferenceKey.self) {
-										self.buttonMaxWidth = $0
+					ForEach(self.items) { (item) in
+						HStack(alignment: .top, spacing: .zero) {
+							Image(systemName: item.symbol)
+								.font(.largeTitle)
+								.foregroundColor(.accentColor)
+								.padding(.horizontal)
+								.background(
+									GeometryReader { (geometry) in
+										Color.clear
+											.preference(
+												key: MaxPreferenceKey.self,
+												value: geometry.size.width
+											)
 									}
-								
-								VStack(alignment: .leading, spacing: 2) {
-									Text(item.title)
-										.font(.footnote)
-										.fontWeight(.semibold)
-										.lineLimit(1)
-										.foregroundColor(.primary)
-									
-									Text(item.subtitle)
-										.font(.footnote)
-										.allowsTightening(true)
-										.multilineTextAlignment(.leading)
-										.foregroundColor(.secondary)
+								)
+								.frame(width: self.symbolMaxSize)
+								.onPreferenceChange(MaxPreferenceKey.self) {
+									self.symbolMaxSize = $0
 								}
-								.frame(maxWidth: .infinity, alignment: .leading)
+							
+							VStack(alignment: .leading, spacing: 2) {
+								Text(item.title)
+									.font(.footnote)
+									.fontWeight(.semibold)
+									.lineLimit(1)
+									.foregroundColor(.primary)
+									.frame(maxWidth: .infinity, alignment: .leading)
+								
+								Text(item.subtitle)
+									.font(.footnote)
+									.allowsTightening(true)
+									.multilineTextAlignment(.leading)
+									.foregroundColor(.secondary)
+									.frame(maxWidth: .infinity, alignment: .leading)
 							}
 						}
 					}
@@ -110,12 +104,92 @@ extension OnboardingView: View {
 			self.footer
 		}
 		.padding()
+		
+		#elseif os(watchOS)
+		
+		ScrollView(.vertical, showsIndicators: true) {
+			VStack(alignment: .leading, spacing: 24) {
+				self.header
+				
+				ForEach(self.items) { (item) in
+					VStack(alignment: .leading, spacing: .zero) {
+						Image(systemName: item.symbol)
+							.font(.largeTitle)
+							.foregroundColor(.accentColor)
+							.symbolRenderingMode(.hierarchical)
+							.padding(.bottom)
+							.background(
+								GeometryReader { (geometry) in
+									Color.clear
+										.preference(
+											key: MaxPreferenceKey.self,
+											value: geometry.size.height
+										)
+								}
+							)
+							.frame(width: self.symbolMaxSize, alignment: .leading)
+							.onPreferenceChange(MaxPreferenceKey.self) {
+								self.symbolMaxSize = $0
+							}
+
+						VStack(alignment: .leading, spacing: 2) {
+							Text(item.title)
+								.font(.footnote)
+								.fontWeight(.semibold)
+								.multilineTextAlignment(.leading)
+								.foregroundColor(.primary)
+								.frame(maxWidth: .infinity, alignment: .leading)
+							
+							
+							Text(item.subtitle)
+								.font(.footnote)
+								.allowsTightening(true)
+								.multilineTextAlignment(.leading)
+								.foregroundColor(.secondary)
+								.frame(maxWidth: .infinity, alignment: .leading)
+						}
+					}
+					.padding(.vertical)
+				}
+				
+				self.footer
+			}
+		}
+		.navigationBarTitleDisplayMode(.inline)
+		.navigationTitle("")
+		#endif
 	}
 }
 
 extension OnboardingView {
+	/// The header of this view.
+	private var header: some View {
+		return Text(self.title.description)
+			#if os(iOS)
+		
+			.font(.largeTitle)
+			.fontWeight(.bold)
+			.multilineTextAlignment(.center)
+			.foregroundColor(.primary)
+			.padding(.vertical)
+			.padding(.vertical)
+		
+			#elseif os(watchOS)
+		
+			.font(.title3)
+			.fontWeight(.bold)
+			.multilineTextAlignment(.leading)
+			.foregroundColor(.primary)
+			.padding(.bottom)
+			.padding(.bottom)
+		
+			#endif
+	}
+	
 	/// The footer of this view.
 	private var footer: some View {
+		#if os(iOS)
+		
 		return VStack(alignment: .center, spacing: 24) {
 			if let terms: String = self.terms {
 				Text(terms)
@@ -133,5 +207,30 @@ extension OnboardingView {
 			}
 			.buttonStyle(FullWidthButtonStyle())
 		}
+		
+		#elseif os(watchOS)
+		
+		return VStack(alignment: .leading, spacing: 16) {
+			Button {
+				self.togglePresentation()
+			} label: {
+				Text("Continue")
+			}
+			.buttonStyle(BorderedButtonStyle(tint: .accentColor))
+			
+			if let terms: String = self.terms {
+				Text(terms)
+					.font(.system(size: 10))
+					.allowsTightening(true)
+					.multilineTextAlignment(.center)
+					.foregroundColor(.secondary)
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+			}
+		}
+		.padding(.vertical)
+		.padding(.bottom)
+		.padding(.bottom)
+		
+		#endif
 	}
 }

@@ -30,6 +30,10 @@ The package currently provides the following implementations:
 
 - `init(name:type:)`: Creates a new instance with the specified file name and type.
 
+**`NavigationView`**
+
+- `onboardable(_:title:items:terms:)`: Marks this view as onboardable, which configures the display of an onboarding sheet.
+
 **`Picker`**
 
 - `init(_:selection:)`: Creates a new instance with the specified title key and selection.
@@ -61,27 +65,35 @@ The package currently provides the following implementations:
 
 **`AppleDevice`**: A representation of an Apple device.
 
+**`ColorfulLabelStyle`**: A label style that shows both the title and icon of the label using a system-standard layout.
+
+- `init(tint:)`: Creates a new instance with the specified tint.
+
 **`Corner`**: A representation of a corner.
 
 **`CornerGroup`**: A representation of a group of corners.
 
 **`DragDirection`**: A representation of a drag direction.
 
-**`UserInterface`**: A representation of a user interface.
+**`FullWidthButtonStyle`**: A button style that applies full width border prominent artwork based on the button’s context.
 
-### Shapes
+- `init()`: Creates a new instance.
 
-**`Polygon`**: A representation of a polygon.
+**`OnboardingItem`**: A representation of an onboarding item.
 
-### Styles
+- `init()`: Creates a new instance with the specified symbol, title and subtitle.
 
-**`ColorfulLabelStyle`**: A label style that shows both the title and icon of the label using a system-standard layout.
+**`OnboardingType`**: A representation of an onboarding type.
 
-- `init(tint:)`: Creates a new instance with the specified tint.
+- Conforms to `CustomStringConvertible`.
 
 **`OrbitalProgressStyle`**: A progress view that visually indicates its progress using an orbit.
 
 - `init(tint:)`: Creates a new instance with the specified tint.
+
+**`Polygon`**: A representation of a polygon.
+
+**`UserInterface`**: A representation of a user interface.
 
 ## Installation
 

@@ -13,6 +13,9 @@ public enum OnboardingType {
 	
 	/// Onboarding for consequent updates.
 	case update
+	
+	/// Custom onboarding.
+	case custom(String)
 }
 
 extension OnboardingType: CustomStringConvertible {
@@ -22,6 +25,8 @@ extension OnboardingType: CustomStringConvertible {
 			return "Welcome to the \r\n\(Self.appName) App"
 		case .update:
 			return "What's New in \r\n\(Self.appName) App"
+		case .custom(let string):
+			return string
 		}
 	}
 	

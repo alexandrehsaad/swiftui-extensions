@@ -1,4 +1,4 @@
-// NavigationView+Onboardable.swift
+// View+Onboardable.swift
 // SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-extension NavigationView {
+extension View {
 	/// Marks this view as onboardable, which configures the display of an onboarding sheet.
 	///
 	/// - Parameters:

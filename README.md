@@ -30,10 +30,6 @@ The package currently provides the following implementations:
 
 - `init(name:type:)`: Creates a new instance with the specified file name and type.
 
-**`NavigationView`**
-
-- `onboardable(_:title:items:terms:)`: Marks this view as onboardable, which configures the display of an onboarding sheet.
-
 **`Picker`**
 
 - `init(_:selection:)`: Creates a new instance with the specified title key and selection.
@@ -60,6 +56,7 @@ The package currently provides the following implementations:
 - `previewDevices(_:)`: Overrides the devices for a preview.
 - `ifDebug(perform:)`: Performs the specified action if in debug.
 - `readDragDirection(perform:)`: Reads the drag direction.
+- `onboardable(_:title:items:terms:)`: Marks this view as onboardable, which configures the display of an onboarding sheet.
 
 ### Objects
 

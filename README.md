@@ -90,6 +90,13 @@ The package currently provides the following implementations:
 
 **`Polygon`**: A representation of a polygon.
 
+- `init()`: Creates a new instance with the specified number of sides.
+
+**`Flower`**: A representation of a flower.
+
+- `init(isMinimized:petals:)`: Creates a new instance with the specified minimized boolean and the number of petals.
+- `masked()`: Returns this view masked.
+
 **`UserInterface`**: A representation of a user interface.
 
 ## Installation

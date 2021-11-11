@@ -15,9 +15,9 @@ public struct RoundedPolygon {
 	/// The corner radius of this polygon.
 	private var radius: CGFloat
 	
-	/// Creates a new instance with the specified sides.
+	/// Creates a new instance with the specified number of sides.
 	///
-	/// - Parameter sides: The sides.
+	/// - Parameter sides: The number of sides.
 	public init(sides: UInt, radius: CGFloat) {
 		self.sides = sides
 		self.radius = radius

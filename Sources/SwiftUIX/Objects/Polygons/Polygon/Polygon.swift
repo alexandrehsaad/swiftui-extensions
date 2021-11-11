@@ -11,9 +11,9 @@ public struct Polygon {
 	/// The number of sides of this polygon.
 	private var sides: UInt
 	
-	/// Creates a new instance with the specified sides.
+	/// Creates a new instance with the specified number of sides.
 	///
-	/// - Parameter sides: The sides.
+	/// - Parameter sides: The number sides.
 	public init(sides: UInt) {
 		self.sides = sides
 	}

@@ -9,13 +9,13 @@ import SwiftUI
 /// A representation of a polygon.
 public struct Polygon {
 	/// The number of sides of this polygon.
-	private var sides: UInt
+	private var sides: CGFloat
 	
 	/// Creates a new instance with the specified number of sides.
 	///
 	/// - Parameter sides: The number sides.
 	public init(sides: UInt) {
-		self.sides = sides == .zero ? 1 : sides
+		self.sides = .init(sides == .zero ? 1 : sides)
 	}
 }
 
@@ -24,9 +24,9 @@ public struct Polygon {
 extension Polygon: Animatable {
 	public var animatableData: CGFloat {
 		get {
-			return .init(self.sides)
+			return self.sides
 		} set (newValue) {
-			self.sides = .init(newValue)
+			self.sides = newValue
 		}
 	}
 }
@@ -41,8 +41,8 @@ extension Polygon: Shape {
 		let center: CGPoint = .init(x: width / 2, y: height / 2)
 		
 		return Path { (path) in
-			for index in 0..<self.sides {
-				let angle: CGFloat = (.init(index) * (360 / self.animatableData) - 90) * .pi / 180
+			for index in 0..<UInt(self.sides) {
+				let angle: CGFloat = (.init(index) * (360 / self.sides) - 90) * .pi / 180
 				
 				let position: CGPoint = .init(
 					x: center.x + cos(angle) * hypotenuse,

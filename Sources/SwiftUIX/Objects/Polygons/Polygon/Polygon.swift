@@ -42,7 +42,7 @@ extension Polygon: Shape {
 		
 		return Path { (path) in
 			for index in 0..<self.sides {
-				let angle: CGFloat = (.init(index) * (360 / .init(self.sides)) - 90) * .pi / 180
+				let angle: CGFloat = (.init(index) * (360 / self.animatableData) - 90) * .pi / 180
 				
 				let position: CGPoint = .init(
 					x: center.x + cos(angle) * hypotenuse,

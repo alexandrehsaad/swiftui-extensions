@@ -48,3 +48,7 @@ extension Polygon: Shape {
 		}
 	}
 }
+
+// MARK: - Animatable
+
+extension Polygon: Animatable {}

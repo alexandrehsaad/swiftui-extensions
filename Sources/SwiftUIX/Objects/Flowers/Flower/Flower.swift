@@ -59,19 +59,17 @@ extension Flower: View {
 				// The petals.
 				ForEach(0...self.petals, id: \.self) { (index) in
 					// The gradient of the petals.
-					.fill(
-						LinearGradient(
-							gradient: .init(colors: self.colors),
-							startPoint: .leading,
-							endPoint: .trailing
-						)
+					LinearGradient(
+						gradient: .init(colors: self.colors),
+						startPoint: .leading,
+						endPoint: .trailing
 					)
 					// The correction on the horizonal angle of the gradient.
 					.rotationEffect(
 						.degrees(-self.angle * CGFloat(index) - CGFloat(90)),
 						anchor: .center
 					)
-					// The triangular mask.
+					// The shape mask.
 					.mask {
 						switch self.shape {
 						case .circle:

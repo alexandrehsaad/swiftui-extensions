@@ -10,5 +10,5 @@ public enum PetalType {
 	case circle
 	
 	/// Polygon shape with the specified number of sides.
-	case polygon(sides: UInt)
+	case polygon(sides: UInt = 5)
 }

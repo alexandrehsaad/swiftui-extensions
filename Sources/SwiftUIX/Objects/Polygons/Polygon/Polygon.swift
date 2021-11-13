@@ -15,7 +15,7 @@ public struct Polygon {
 	///
 	/// - Parameter sides: The number sides.
 	public init(sides: UInt) {
-		self.sides = sides
+		self.sides = sides == .zero ? 1 : sides
 	}
 }
 

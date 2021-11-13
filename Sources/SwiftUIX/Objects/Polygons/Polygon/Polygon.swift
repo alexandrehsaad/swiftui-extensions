@@ -19,6 +19,18 @@ public struct Polygon {
 	}
 }
 
+// MARK: - Animatable
+
+extension Polygon: Animatable {
+	public var animatableData: CGFloat {
+		get {
+			return .init(self.sides)
+		} set (newValue) {
+			self.sides = .init(newValue)
+		}
+	}
+}
+
 // MARK: - Shape
 
 extension Polygon: Shape {
@@ -48,7 +60,3 @@ extension Polygon: Shape {
 		}
 	}
 }
-
-// MARK: - Animatable
-
-extension Polygon: Animatable {}

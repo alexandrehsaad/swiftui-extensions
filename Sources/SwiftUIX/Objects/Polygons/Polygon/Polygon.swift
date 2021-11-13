@@ -40,8 +40,10 @@ extension Polygon: Shape {
 		let hypotenuse: CGFloat = min(width, height) / 2
 		let center: CGPoint = .init(x: width / 2, y: height / 2)
 		
+		let side: UInt = self.sides == self.sides.rounded(.down) ? 0 : 1
+		
 		return Path { (path) in
-			for index in 0..<UInt(self.sides) {
+			for index in 0..<UInt(self.sides) + side {
 				let angle: CGFloat = (.init(index) * (360 / self.sides) - 90) * .pi / 180
 				
 				let position: CGPoint = .init(

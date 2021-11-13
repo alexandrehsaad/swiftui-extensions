@@ -94,7 +94,7 @@ The package currently provides the following implementations:
 
 **`Flower`**: A representation of a flower.
 
-- `init(isMinimized:petals:)`: Creates a new instance with the specified minimized boolean and the number of petals.
+- `init(isMinimized:petals:shape:)`: Creates a new instance with the specified minimized boolean and the number and shape of petals.
 - `masked()`: Returns this view masked.
 
 **`UserInterface`**: A representation of a user interface.

@@ -109,7 +109,7 @@ extension OnboardingView: View {
 		#elseif os(watchOS)
 		
 		ScrollView(.vertical, showsIndicators: true) {
-			VStack(alignment: .leading, spacing: 24) {
+			VStack(alignment: .leading, spacing: 24) { // TODO: Lazy
 				self.header
 				
 				ForEach(self.items) { (item) in
@@ -212,26 +212,26 @@ extension OnboardingView {
 		
 		#elseif os(watchOS)
 		
-		return VStack(alignment: .leading, spacing: 16) {
+		return Section {
 			Button {
 				self.togglePresentation()
 			} label: {
 				Text("Continue")
 			}
 			.buttonStyle(BorderedButtonStyle(tint: .accentColor))
-			
+		} footer: {
 			if let terms: String = self.terms {
 				Text(terms)
 					.font(.system(size: 10))
 					.allowsTightening(true)
-					.multilineTextAlignment(.center)
+					.multilineTextAlignment(.leading)
 					.foregroundColor(.secondary)
-					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 			}
 		}
-		.padding(.vertical)
-		.padding(.bottom)
-		.padding(.bottom)
+//		.padding(.vertical)
+//		.padding(.bottom)
+//		.padding(.bottom)
 		
 		#endif
 	}

@@ -14,14 +14,19 @@ public struct Flower {
 	/// The number of petals.
 	private var petals: UInt
 	
-	/// Creates a new instance with the specified minimized boolean and the number of petals.
+	/// The shape of petals.
+	private var shape: PetalType
+	
+	/// Creates a new instance with the specified minimized boolean, the number and shape of petals.
 	///
 	/// - Parameters:
 	///   - isMinimized: A boolean value.
 	///   - petals: The number of petals.
-	public init(isMinimized: Bool = false, petals: UInt = 7) {
+	///   - shape: The shape of petals.
+	public init(isMinimized: Bool = false, petals: UInt = 7, shape: PetalType = .circle) {
 		self.isMinimized = isMinimized
 		self.petals = petals
+		self.shape = shape
 	}
 	
 	/// The color of the petals.
@@ -38,7 +43,7 @@ public struct Flower {
 	
 	/// Returns this view masked.
 	public func masked() -> some View {
-		var flowerView: Self = .init(isMinimized: isMinimized, petals: petals)
+		var flowerView: Self = .init(isMinimized: self.isMinimized, petals: self.petals, shape: self.shape)
 		flowerView.colors = [.black]
 		
 		return flowerView
@@ -50,37 +55,45 @@ public struct Flower {
 extension Flower: View {
 	public var body: some View {
 		return GeometryReader { (geometry) in
-			ZStack {
-				// The petals
+			ZStack(alignment: .center) {
+				// The petals.
 				ForEach(0...self.petals, id: \.self) { (index) in
-					Circle()
-						// The gradient of the petals.
-						.fill(
-							LinearGradient(
-								gradient: .init(colors: self.colors),
-								startPoint: .leading,
-								endPoint: .trailing
-							)
+					// The gradient of the petals.
+					.fill(
+						LinearGradient(
+							gradient: .init(colors: self.colors),
+							startPoint: .leading,
+							endPoint: .trailing
 						)
-						// The correction on the horizonal angle of the gradient.
-						.rotationEffect(
-							.degrees(-self.angle * CGFloat(index) - CGFloat(90)),
-							anchor: .center
-						)
-						// The blend mode of the petals.
-						.blendMode(.normal)
-						// The size of the petals.
-						.frame(
-							width: max(geometry.size.width, geometry.size.height) / 2,
-							height: max(geometry.size.width, geometry.size.height) / 2
-						)
-						// The opacity on the entry and exit of petals.
-						.opacity(index == self.petals ? 0 : 1)
-						// The position of each petals.
-						.rotationEffect(
-							.degrees(self.angle * .init(index)),
-							anchor: self.isMinimized ? .center : .leading
-						)
+					)
+					// The correction on the horizonal angle of the gradient.
+					.rotationEffect(
+						.degrees(-self.angle * CGFloat(index) - CGFloat(90)),
+						anchor: .center
+					)
+					// The triangular mask.
+					.mask {
+						switch self.shape {
+						case .circle:
+							Circle()
+						case .polygon(let sides):
+							Polygon(sides: sides)
+						}
+					}
+					// The blend mode on the petals.
+					.blendMode(.normal)
+					// The size of the petals.
+					.frame(
+						width: max(geometry.size.width, geometry.size.height) / 2,
+						height: max(geometry.size.width, geometry.size.height) / 2
+					)
+					// The opacity on the entry and exit of petals.
+					.opacity(index == self.petals ? 0 : 1)
+					// The position of each petals.
+					.rotationEffect(
+						.degrees(self.angle * .init(index)),
+						anchor: self.isMinimized ? .center : .leading
+					)
 				}
 			}
 			// The correction on the center position of the flower.

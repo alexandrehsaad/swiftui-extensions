@@ -10,7 +10,7 @@ import Combine
 public class NavigationController<Tag>: ObservableObject
 where Tag: Hashable {
 	/// Creates a new instance.
-	init() {}
+	public init() {}
 	
 	/// The selected tagged navigation link.
 	@Published

@@ -17,13 +17,12 @@ where Tag: Hashable {
 	public var selected: Tag? = nil
 	
 	/// A boolean value indicating whether the navigation stack is at its root.
-	@Published
 	public var isRoot: Bool {
-		return self.tag == nil
+		return self.selected == nil
 	}
 	
 	/// Pops the navigation stack to its root.
 	public func popToRoot() {
-		self.tag = nil
+		self.selected = nil
 	}
 }

@@ -72,9 +72,21 @@ The package currently provides the following implementations:
 
 **`DragDirection`**: A representation of a drag direction.
 
+**`Flower`**: A representation of a flower.
+
+- `init(isMinimized:petals:shape:)`: Creates a new instance with the specified minimized boolean and the number and shape of petals.
+- `masked()`: Returns this view masked.
+
 **`FullWidthButtonStyle`**: A button style that applies full width border prominent artwork based on the button’s context.
 
 - `init()`: Creates a new instance.
+
+**`NavigationController`**: A representation of a navigation controller.
+
+- `init()`: Creates a new instance.
+- `tag`: The selected tagged navigation link.
+- `isRoot`: A boolean value indicating whether the navigation stack is at its root.
+- `popToRoot()`: Pops the navigation stack to its root.
 
 **`OnboardingItem`**: A representation of an onboarding item.
 
@@ -91,11 +103,6 @@ The package currently provides the following implementations:
 **`Polygon`**: A representation of a polygon.
 
 - `init()`: Creates a new instance with the specified number of sides.
-
-**`Flower`**: A representation of a flower.
-
-- `init(isMinimized:petals:shape:)`: Creates a new instance with the specified minimized boolean and the number and shape of petals.
-- `masked()`: Returns this view masked.
 
 **`UserInterface`**: A representation of a user interface.
 

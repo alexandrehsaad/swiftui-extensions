@@ -62,6 +62,10 @@ The package currently provides the following implementations:
 
 **`AppleDevice`**: A representation of an Apple device.
 
+**`CapsuleButtonStyle`**: A button style that applies a capsule border artwork based on the button’s context.
+
+- `init(tint:)`: Creates a new instance with the specified tint.
+
 **`ColorfulLabelStyle`**: A label style that shows both the title and icon of the label using a system-standard layout.
 
 - `init(tint:)`: Creates a new instance with the specified tint.

@@ -109,7 +109,7 @@ extension OnboardingView: View {
 		#elseif os(watchOS)
 		
 		ScrollView(.vertical, showsIndicators: true) {
-			VStack(alignment: .leading, spacing: 24) { // TODO: Lazy
+			LazyVStack(alignment: .leading, spacing: 24) {
 				self.header
 				
 				ForEach(self.items) { (item) in
@@ -229,9 +229,6 @@ extension OnboardingView {
 					.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 			}
 		}
-//		.padding(.vertical)
-//		.padding(.bottom)
-//		.padding(.bottom)
 		
 		#endif
 	}

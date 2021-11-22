@@ -104,7 +104,7 @@ extension Flower: View {
 			// The rotation animation.
 			.rotationEffect(.degrees(self.isMinimized ? -90 : 0))
 			// The scale animation.
-			.scaleEffect(self.isMinimized ? 0.25 : 1)
+			.scaleEffect(self.isMinimized ? 0.5 : 1, anchor: .center)
 			// The top position of the first petal.
 			.rotationEffect(.degrees(-90))
 			// The clockwise animation on the entry of petals.

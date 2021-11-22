@@ -112,48 +112,46 @@ extension OnboardingView: View {
 				
 				ScrollView(.vertical, showsIndicators: true) {
 					LazyVStack(alignment: .leading, spacing: 32) {
-						Group {
-							self.header
-							
-							ForEach(self.items) { (item) in
-								VStack(alignment: .leading, spacing: .zero) {
-									Image(systemName: item.symbol)
-										.font(.largeTitle)
-										.foregroundColor(.accentColor)
-										.symbolRenderingMode(.hierarchical)
-										.padding(.bottom)
-										.background(
-											GeometryReader { (geometry) in
-												Color.clear
-													.preference(
-														key: MaxPreferenceKey.self,
-														value: geometry.size.height
-													)
-											}
-										)
-										.frame(width: self.symbolMaxSize, alignment: .leading)
-										.onPreferenceChange(MaxPreferenceKey.self) {
-											self.symbolMaxSize = $0
+						self.header
+						
+						ForEach(self.items) { (item) in
+							VStack(alignment: .leading, spacing: .zero) {
+								Image(systemName: item.symbol)
+									.font(.largeTitle)
+									.foregroundColor(.accentColor)
+									.symbolRenderingMode(.hierarchical)
+									.padding(.bottom)
+									.background(
+										GeometryReader { (geometry) in
+											Color.clear
+												.preference(
+													key: MaxPreferenceKey.self,
+													value: geometry.size.height
+												)
 										}
-
-									VStack(alignment: .leading, spacing: 2) {
-										Text(item.title)
-											.font(.footnote)
-											.fontWeight(.semibold)
-											.multilineTextAlignment(.leading)
-											.foregroundColor(.primary)
-											.frame(maxWidth: .infinity, alignment: .leading)
-										
-										Text(item.subtitle)
-											.font(.footnote)
-											.allowsTightening(true)
-											.multilineTextAlignment(.leading)
-											.foregroundColor(.secondary)
-											.frame(maxWidth: .infinity, alignment: .leading)
+									)
+									.frame(width: self.symbolMaxSize, alignment: .leading)
+									.onPreferenceChange(MaxPreferenceKey.self) {
+										self.symbolMaxSize = $0
 									}
+
+								VStack(alignment: .leading, spacing: 2) {
+									Text(item.title)
+										.font(.footnote)
+										.fontWeight(.semibold)
+										.multilineTextAlignment(.leading)
+										.foregroundColor(.primary)
+										.frame(maxWidth: .infinity, alignment: .leading)
+									
+									Text(item.subtitle)
+										.font(.footnote)
+										.allowsTightening(true)
+										.multilineTextAlignment(.leading)
+										.foregroundColor(.secondary)
+										.frame(maxWidth: .infinity, alignment: .leading)
 								}
-								.padding(.vertical)
 							}
+							.padding(.vertical)
 						}
 						
 						self.footer
@@ -182,7 +180,7 @@ extension OnboardingView {
 		
 			#elseif os(watchOS)
 		
-			.font(.title3)
+			.font(.headline)
 			.fontWeight(.bold)
 			.multilineTextAlignment(.leading)
 			.foregroundColor(.primary)

@@ -70,7 +70,7 @@ extension Flower: View {
 						anchor: .center
 					)
 					// The rotation animation on the petals gradient.
-					.rotationEffect(.degrees(self.isMinimized ? 90 : 0))
+					.rotationEffect(.degrees(self.isMinimized ? 90 : .zero))
 					// The shape mask.
 					.mask {
 						switch self.shape {
@@ -88,7 +88,7 @@ extension Flower: View {
 						height: max(geometry.size.width, geometry.size.height) / 2
 					)
 					// The opacity on the entry and exit of petals.
-					.opacity(index == self.petals ? 0 : 1)
+					.opacity(index == self.petals ? .zero : 1)
 					// The position of each petals.
 					.rotationEffect(
 						.degrees(self.angle * .init(index)),
@@ -97,14 +97,14 @@ extension Flower: View {
 				}
 			}
 			// The correction on the center position of the flower.
-			.offset(x: self.isMinimized ? 0 : max(geometry.size.width, geometry.size.height) / 4)
+			.offset(x: self.isMinimized ? .zero : max(geometry.size.width, geometry.size.height) / 4)
 			// The size of the flower.
 			.frame(
 				width: max(geometry.size.width, geometry.size.height),
 				height: max(geometry.size.width, geometry.size.height)
 			)
 			// The rotation animation on the flower.
-			.rotationEffect(.degrees(self.isMinimized ? -90 : 0))
+			.rotationEffect(.degrees(self.isMinimized ? -90 : .zero))
 			// The scale animation.
 			.scaleEffect(self.isMinimized ? 0.5 : 1, anchor: .center)
 			// The top position of the first petal.

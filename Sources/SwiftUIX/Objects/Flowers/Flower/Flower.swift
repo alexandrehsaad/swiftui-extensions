@@ -69,6 +69,8 @@ extension Flower: View {
 						.degrees(-self.angle * CGFloat(index) - CGFloat(90)),
 						anchor: .center
 					)
+					// The rotation animation on the petals gradient.
+					.rotationEffect(.degrees(self.isMinimized ? 90 : 0))
 					// The shape mask.
 					.mask {
 						switch self.shape {
@@ -101,7 +103,7 @@ extension Flower: View {
 				width: max(geometry.size.width, geometry.size.height),
 				height: max(geometry.size.width, geometry.size.height)
 			)
-			// The rotation animation.
+			// The rotation animation on the flower.
 			.rotationEffect(.degrees(self.isMinimized ? -90 : 0))
 			// The scale animation.
 			.scaleEffect(self.isMinimized ? 0.5 : 1, anchor: .center)

@@ -74,6 +74,10 @@ The package currently provides the following implementations:
 
 **`CornerGroup`**: A representation of a group of corners.
 
+**`DeviceInterface`**: A representation of a device interface.
+
+- `current`: The current device interface.
+
 **`DragDirection`**: A representation of a drag direction.
 
 **`Flower`**: A representation of a flower.

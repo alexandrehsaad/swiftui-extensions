@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+// TODO: rounded polygon
 /// A representation of a rounded polygon.
 @available(*, unavailable)
 public struct RoundedPolygon {

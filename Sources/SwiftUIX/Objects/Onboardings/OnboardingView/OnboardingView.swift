@@ -6,7 +6,9 @@
 
 import SwiftUI
 
+// TODO: macOS
 /// A representation of an onboarding view.
+@available(iOS 15, watchOS 8, *)
 struct OnboardingView {
 	/// A boolean value indicating whether this sheet is presented.
 	@Binding
@@ -108,6 +110,10 @@ extension OnboardingView: View {
 				}
 				.padding()
 				
+				#elseif os(macOS)
+
+				EmptyView()
+				
 				#elseif os(watchOS)
 				
 				ScrollView(.vertical, showsIndicators: true) {
@@ -159,7 +165,9 @@ extension OnboardingView: View {
 				}
 				#endif
 			}
+			#if !os(macOS)
 			.navigationBarTitleDisplayMode(.inline)
+			#endif
 			.navigationTitle("")
 		}
 	}
@@ -177,6 +185,10 @@ extension OnboardingView {
 			.foregroundColor(.primary)
 			.padding(.vertical)
 			.padding(.vertical)
+		
+			#elseif os(macOS)
+		
+			//
 		
 			#elseif os(watchOS)
 		
@@ -209,6 +221,10 @@ extension OnboardingView {
 			}
 			.buttonStyle(FullWidthButtonStyle())
 		}
+		
+		#elseif os(macOS)
+		
+		return EmptyView()
 		
 		#elseif os(watchOS)
 		

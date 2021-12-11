@@ -1,10 +1,10 @@
-// DeviceInterface+CustomStringConvertible.swift
+// UserInterface+CustomStringConvertible.swift
 // SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
 //
 
-extension DeviceInterface: CustomStringConvertible {
+extension UserInterface: CustomStringConvertible {
 	public var description: String {
 		switch self {
 		case .mac:

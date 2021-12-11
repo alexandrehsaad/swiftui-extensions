@@ -7,7 +7,7 @@
 import SwiftUI
 
 /// A representation of a sidebar button.
-@available(macOS 15, *)
+@available(macOS 12, *)
 public struct SidebarButton {
 	/// Creates a new instance.
 	public init() {}
@@ -22,7 +22,7 @@ public struct SidebarButton {
 
 // MARK: - View
 
-@available(macOS 15, *)
+@available(macOS 12, *)
 extension SidebarButton: View {
 	public var body: some View {
 		return Button {

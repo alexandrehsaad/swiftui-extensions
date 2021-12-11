@@ -15,7 +15,7 @@ public struct Flower {
 	private var petals: UInt
 	
 	/// The shape of petals.
-	private var shape: PetalType
+	private var shape: PetalShape
 	
 	/// Creates a new instance with the specified minimized boolean, the number and shape of petals.
 	///
@@ -23,7 +23,7 @@ public struct Flower {
 	///   - isMinimized: A boolean value.
 	///   - petals: The number of petals.
 	///   - shape: The shape of petals.
-	public init(isMinimized: Bool = false, petals: UInt = 7, shape: PetalType = .circle) {
+	public init(isMinimized: Bool = false, petals: UInt = 7, shape: PetalShape = .circle) {
 		self.isMinimized = isMinimized
 		self.petals = petals
 		self.shape = shape

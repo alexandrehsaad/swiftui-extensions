@@ -1,11 +1,11 @@
-// PetalType.swift
+// PetalShape.swift
 // SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
 //
 
-/// A representation of a petal type.
-public enum PetalType {
+/// A representation of a petal shape.
+public enum PetalShape {
 	/// Circle shape.
 	case circle
 	

@@ -1,6 +1,6 @@
 # swiftui-extensions
 
-**SwiftUIX** is an umpteenth package containing extensions for Apple's SwiftUI framework.
+**SwiftUIX** is a package containing extensions for Apple's SwiftUI framework.
 
 ## Content
 
@@ -62,43 +62,58 @@ The package currently provides the following implementations:
 
 **`AppleDevice`**: A representation of an Apple device.
 
+- Conforms to `CustomStringConvertible`.
+
 **`CapsuleButtonStyle`**: A button style that applies a capsule border artwork based on the button’s context.
 
 - `init(tint:)`: Creates a new instance with the specified tint.
+- Conforms to `ButtonStyle`.
 
 **`ColorfulLabelStyle`**: A label style that shows both the title and icon of the label using a system-standard layout.
 
 - `init(tint:)`: Creates a new instance with the specified tint.
+- Conforms to `LabelStyle`.
 
 **`Corner`**: A representation of a corner.
 
+- Conforms to `CaseIterable`.
+
 **`CornerGroup`**: A representation of a group of corners.
 
-**`DeviceInterface`**: A representation of a device interface.
-
-- `current`: The current device interface.
-
 **`DragDirection`**: A representation of a drag direction.
+
+- Conforms to `CaseIterable`.
 
 **`Flower`**: A representation of a flower.
 
 - `init(isMinimized:petals:shape:)`: Creates a new instance with the specified minimized boolean and the number and shape of petals.
 - `masked()`: Returns this view masked.
+- Conforms to `View`.
 
 **`FullWidthButtonStyle`**: A button style that applies full width border prominent artwork based on the button’s context.
 
 - `init()`: Creates a new instance.
+- Conforms to `ButtonStyle`.
 
 **`NavigationController`**: A representation of a navigation controller.
 
 - `init()`: Creates a new instance.
-- `tag`: The selected tagged navigation link.
+- `alertIsPresented`: A boolean value indicating whether an alert is presented.
+- `sheetIsPresented`: A boolean value indicating whether a sheet is presented.
+- `tab`: The selected tab.
+- `link`: The selected link.
 - `isRoot`: A boolean value indicating whether the navigation stack is at its root.
 - `popToRoot()`: Pops the navigation stack to its root.
+- `presentAlert()`: Presents an alert.
+- `dismissAlert()`: Dismisses an alert.
+- `presentSheet()`: Presents a sheet.
+- `dismissSheet()`: Dismisses a sheet.
+- Conforms to `ObservableObject`.
 
 **`OnboardingItem`**: A representation of an onboarding item.
 
 - `init()`: Creates a new instance with the specified symbol, title and subtitle.
+- Conforms to `Identifiable`.
 
 **`OnboardingType`**: A representation of an onboarding type.
 
@@ -107,12 +122,24 @@ The package currently provides the following implementations:
 **`OrbitalProgressStyle`**: A progress view that visually indicates its progress using an orbit.
 
 - `init(tint:)`: Creates a new instance with the specified tint.
+- Conforms to `ProgressViewStyle`.
+
+**`PetalShape`**: A representation of a petal type.
 
 **`Polygon`**: A representation of a polygon.
 
 - `init()`: Creates a new instance with the specified number of sides.
+- Conforms to `Animatable`, `Shape`.
+
+**`SidebarButton`**: A representation of a sidebar button.
+
+- `init()`: Creates a new instance.
+- Conforms to `View`.
 
 **`UserInterface`**: A representation of a user interface.
+
+- `current`: The current device interface.
+- Conforms to `CustomStringConvertible`.
 
 ## Installation
 

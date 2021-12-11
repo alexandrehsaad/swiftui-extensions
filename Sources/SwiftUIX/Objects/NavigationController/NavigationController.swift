@@ -12,6 +12,10 @@ where Tag: Hashable {
 	/// Creates a new instance.
 	public init() {}
 	
+	/// A boolean value indicating whether the user is onboardable.
+	@Published
+	public var userIsOnboardable: Bool = false
+	
 	/// A boolean value indicating whether an alert is presented.
 	@Published
 	public var alertIsPresented: Bool = false

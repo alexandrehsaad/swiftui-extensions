@@ -98,6 +98,7 @@ The package currently provides the following implementations:
 **`NavigationController`**: A representation of a navigation controller.
 
 - `init()`: Creates a new instance.
+- `userIsOnboardable`: A boolean value indicating whether the user is onboardable.
 - `alertIsPresented`: A boolean value indicating whether an alert is presented.
 - `sheetIsPresented`: A boolean value indicating whether a sheet is presented.
 - `tab`: The selected tab.

@@ -8,9 +8,9 @@ import SwiftUI
 
 /// A representation of a sidebar button.
 @available(macOS 15, *)
-struct SidebarButton {
+public struct SidebarButton {
 	/// Creates a new instance.
-	init() {}
+	public init() {}
 	
 	/// Toggles the sidebar.
 	private func toggleSidebar() {
@@ -24,7 +24,7 @@ struct SidebarButton {
 
 @available(macOS 15, *)
 extension SidebarButton: View {
-	var body: some View {
+	public var body: some View {
 		return Button {
 			self.toggleSidebar()
 		} label: {

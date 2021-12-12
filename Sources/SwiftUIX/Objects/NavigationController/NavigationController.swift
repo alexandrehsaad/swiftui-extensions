@@ -7,8 +7,8 @@
 import Combine
 
 /// A representation of a navigation controller.
-public final class NavigationController<Tag>: ObservableObject
-where Tag: Hashable {
+public final class NavigationController<SheetTag, TabTag, LinkTag>: ObservableObject
+where SheetTag: Hashable, TabTag: Hashable, LinkTag: Hashable {
 	/// Creates a new instance.
 	public init() {}
 	
@@ -24,13 +24,17 @@ where Tag: Hashable {
 	@Published
 	public var sheetIsPresented: Bool = false
 	
-	/// The selected tab.
+	/// The focused sheet.
 	@Published
-	public var tab: Tag? = nil
+	public var sheet: SheetTag? = nil
 	
-	/// The selected link.
+	/// The focused tab.
 	@Published
-	public var link: Tag? = nil
+	public var tab: TabTag? = nil
+	
+	/// The focused link.
+	@Published
+	public var link: LinkTag? = nil
 	
 	/// A boolean value indicating whether the navigation stack is at its root.
 	public var isRoot: Bool {

@@ -101,8 +101,9 @@ The package currently provides the following implementations:
 - `userIsOnboardable`: A boolean value indicating whether the user is onboardable.
 - `alertIsPresented`: A boolean value indicating whether an alert is presented.
 - `sheetIsPresented`: A boolean value indicating whether a sheet is presented.
-- `tab`: The selected tab.
-- `link`: The selected link.
+- `sheet`: The focused sheet.
+- `tab`: The focused tab.
+- `link`: The focused link.
 - `isRoot`: A boolean value indicating whether the navigation stack is at its root.
 - `popToRoot()`: Pops the navigation stack to its root.
 - `presentAlert()`: Presents an alert.

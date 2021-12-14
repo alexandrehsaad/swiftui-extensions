@@ -28,7 +28,12 @@ extension SidebarButton: View {
 		return Button {
 			self.toggleSidebar()
 		} label: {
-			Image(systemName: "sidebar.leading")
+			Label {
+				// TODO: localize
+				Text("Toggle Sidebar")
+			} icon: {
+				Image(systemName: "sidebar.leading")
+			}
 		}
 	}
 }

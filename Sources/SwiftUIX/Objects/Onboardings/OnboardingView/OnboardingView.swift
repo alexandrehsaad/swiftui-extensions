@@ -75,13 +75,13 @@ extension OnboardingView: View {
 											GeometryReader { (geometry) in
 												Color.clear
 													.preference(
-														key: MaxPreferenceKey.self,
+														key: OnboardingItemWidthPreferenceKey.self,
 														value: geometry.size.width
 													)
 											}
 										)
 										.frame(width: self.symbolMaxSize)
-										.onPreferenceChange(MaxPreferenceKey.self) {
+										.onPreferenceChange(OnboardingItemWidthPreferenceKey.self) {
 											self.symbolMaxSize = $0
 										}
 									
@@ -131,13 +131,13 @@ extension OnboardingView: View {
 										GeometryReader { (geometry) in
 											Color.clear
 												.preference(
-													key: MaxPreferenceKey.self,
+													key: OnboardingItemWidthPreferenceKey.self,
 													value: geometry.size.height
 												)
 										}
 									)
 									.frame(width: self.symbolMaxSize, alignment: .leading)
-									.onPreferenceChange(MaxPreferenceKey.self) {
+									.onPreferenceChange(OnboardingItemWidthPreferenceKey.self) {
 										self.symbolMaxSize = $0
 									}
 

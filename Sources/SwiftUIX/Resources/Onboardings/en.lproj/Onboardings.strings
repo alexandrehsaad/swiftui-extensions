@@ -1,0 +1,8 @@
+// Onboardings.swift (English)
+// SwiftUIX
+//
+// Copyright © 2021 Alexandre H. Saad
+//
+
+"welcome_to_%@" = "Welcome to the \r\n%@ App";
+"novelties_in_%@" = "What's New in the \r\n%@ App";

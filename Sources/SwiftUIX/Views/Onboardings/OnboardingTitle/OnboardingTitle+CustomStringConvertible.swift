@@ -1,10 +1,10 @@
-// OnboardingType+CustomStringConvertible.swift
+// OnboardingTitle+CustomStringConvertible.swift
 // SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
 //
 
-extension OnboardingType: CustomStringConvertible {
+extension OnboardingTitle: CustomStringConvertible {
 	public var description: String {
 		switch self {
 		case .welcome:

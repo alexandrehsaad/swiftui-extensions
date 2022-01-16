@@ -1,4 +1,4 @@
-// OnboardingType.swift
+// OnboardingTitle.swift
 // SwiftUIX
 //
 // Copyright © 2021 Alexandre H. Saad
@@ -7,7 +7,7 @@
 import Foundation
 
 /// A representation of an onboarding type.
-public enum OnboardingType {
+public enum OnboardingTitle {
 	/// Onboarding for initial welcome.
 	case welcome
 	

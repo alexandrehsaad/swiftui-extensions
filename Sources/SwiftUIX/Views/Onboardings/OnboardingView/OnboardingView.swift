@@ -186,6 +186,12 @@ extension OnboardingView: View {
 			#endif
 			.navigationTitle("")
 		}
+		.onAppear {
+			OnboardEnvironmentKey.defaultValue = true
+		}
+		.onDisappear {
+			OnboardEnvironmentKey.defaultValue = false
+		}
 	}
 }
 

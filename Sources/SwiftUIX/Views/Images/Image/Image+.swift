@@ -33,4 +33,18 @@ extension Image {
 		self.init(name)
 		#endif
 	}
+	
+	/// Squares this instance.
+	///
+	/// - Returns: This instance squared.
+	public func squared() -> some View {
+		return Rectangle()
+			.aspectRatio(1, contentMode: .fit)
+			.overlay(
+				self
+					.resizable()
+					.scaledToFill()
+			)
+			.clipShape(Rectangle())
+	}
 }

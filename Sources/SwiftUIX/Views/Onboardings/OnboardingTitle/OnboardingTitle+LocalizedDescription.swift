@@ -4,6 +4,8 @@
 // Copyright © 2021 Alexandre H. Saad
 //
 
+import SwiftUI
+
 extension OnboardingTitle: LocalizedDescription {
 	public var localizedDescription: LocalizedStringKey {
 		switch self {

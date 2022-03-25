@@ -4,6 +4,8 @@
 // Copyright © 2021 Alexandre H. Saad
 //
 
+import SwiftUI
+
 /// A representation of rounded corners.
 struct RoundedCorners {
 	/// The bottom leading corner of the view.

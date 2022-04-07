@@ -1,7 +1,8 @@
 // PreviewDevice+.swift
 // SwiftUIX
 //
-// Copyright © 2021 Alexandre H. Saad
+// Copyright © 2021-2022 Alexandre H. Saad
+// Licensed under the MIT License
 //
 
 extension PreviewDevice {

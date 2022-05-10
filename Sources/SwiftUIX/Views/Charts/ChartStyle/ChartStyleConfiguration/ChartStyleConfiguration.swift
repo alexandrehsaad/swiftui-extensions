@@ -17,9 +17,8 @@ public struct ChartStyleConfiguration {
 	
 	/// Creates a new instance with the specified label and data.
 	///
-	/// - Parameters:
-	///   - label: The label.
-	///   - data: The data to chart.
+	/// - parameter label: The label.
+	/// - parameter data: The data to chart.
 	init(label: Text, data: [CGFloat]) {
 		self.label = label
 		self.data = data

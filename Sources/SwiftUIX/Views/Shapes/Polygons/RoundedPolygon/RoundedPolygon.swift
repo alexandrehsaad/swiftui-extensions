@@ -19,7 +19,7 @@ public struct RoundedPolygon {
 	
 	/// Creates a new instance with the specified number of sides.
 	///
-	/// - Parameter sides: The number of sides.
+	/// - parameter sides: The number of sides.
 	public init(sides: UInt, radius: CGFloat) {
 		self.sides = sides
 		self.radius = radius

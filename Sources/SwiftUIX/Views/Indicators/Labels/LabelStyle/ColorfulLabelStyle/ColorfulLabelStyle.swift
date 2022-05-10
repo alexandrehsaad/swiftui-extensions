@@ -16,7 +16,7 @@ struct ColorfulLabelStyle {
 	
 	/// Creates a new instance with the specified tint.
 	///
-	/// - Parameter color: The tint.
+	/// - parameter color: The tint.
 	init(tint: Color) {
 		self.tint = tint
 	}

@@ -16,7 +16,7 @@ extension Color {
 	/// // Prints "red"
 	/// ```
 	///
-	/// - Parameter hex: The hexadimal value.
+	/// - parameter hex: The hexadimal value.
 	public init?<Source>(hex: Source)
 	where Source: StringProtocol {
 		var hexValue: Substring = .init(hex)
@@ -207,8 +207,8 @@ extension Color {
 	
 	/// Returns a lightened variant of this color by the specified factor.
 	///
-	/// - Parameter factor: The lightening factor.
-	/// - Returns: The color lightened.
+	/// - parameter factor: The lightening factor.
+	/// - returns: The color lightened.
 	@available(*, unavailable)
 	public func lightened(by factor: CGFloat) -> Self {
 		return self
@@ -216,8 +216,8 @@ extension Color {
 	
 	/// Returns a darkened variant of this color by the specified factor.
 	///
-	/// - Parameter factor: The darkening factor.
-	/// - Returns: The color darkened.
+	/// - parameter factor: The darkening factor.
+	/// - returns: The color darkened.
 	@available(*, unavailable)
 	public func darkened(by factor: CGFloat) -> Self {
 		return self
@@ -239,8 +239,8 @@ extension Color {
 	
 	/// Returns this color layered below the specified color.
 	///
-	/// - Parameter color: The color to layer on top.
-	/// - Returns: The two colors layered.
+	/// - parameter color: The color to layer on top.
+	/// - returns: The two colors layered.
 	public func layered(below color: Self) -> Self {
 		let lhs = self.values
 		let rhs = color.values

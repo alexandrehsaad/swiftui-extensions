@@ -10,9 +10,8 @@ import SwiftUI
 extension Image {
 	/// Creates a new instance with the specified file name and type.
 	///
-	/// - Parameters:
-	///   - name: The name of the file.
-	///   - type: The type of the file.
+	/// - parameter name: The name of the file.
+	/// - parameter type: The type of the file.
 	public init(name: String, type: String) {
 		#if canImport(UIKit)
 		typealias Content = UIImage
@@ -37,7 +36,7 @@ extension Image {
 	
 	/// Squares this instance.
 	///
-	/// - Returns: This instance squared.
+	/// - returns: This instance squared.
 	public func squared() -> some View {
 		return Rectangle()
 			.aspectRatio(1, contentMode: .fit)

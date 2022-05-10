@@ -14,7 +14,7 @@ public struct Polygon {
 	
 	/// Creates a new instance with the specified number of sides.
 	///
-	/// - Parameter sides: The number sides.
+	/// - parameter sides: The number sides.
 	public init(sides: UInt) {
 		self.sides = .init(sides == .zero ? 1 : sides)
 	}

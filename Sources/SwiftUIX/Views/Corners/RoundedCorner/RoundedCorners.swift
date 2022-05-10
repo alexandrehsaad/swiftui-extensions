@@ -23,9 +23,8 @@ struct RoundedCorners {
 	
 	/// Creates a new instance with the specified corner and radius.
 	///
-	/// - Parameters:
-	///   - corner: The corner.
-	///   - radius: The corner radius.
+	/// - parameter corner: The corner.
+	/// - parameter radius: The corner radius.
 	init(_ corner: Corner, _ radius: CGFloat) {
 		switch corner {
 		case .bottomLeading:
@@ -41,9 +40,8 @@ struct RoundedCorners {
 	
 	/// Creates a new instance with the specified corner group and radius.
 	///
-	/// - Parameters:
-	///   - group: The corner group.
-	///   - radius: The corner radius.
+	/// - parameter group: The corner group.
+	/// - parameter radius: The corner radius.
 	init(_ group: CornerGroup, _ radius: CGFloat) {
 		for corner in group.corners {
 			switch corner {

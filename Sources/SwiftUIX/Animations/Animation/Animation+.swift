@@ -10,8 +10,8 @@ import SwiftUI
 extension Animation {
 	/// A  ripple animation.
 	///
-	/// - Parameter index: The index of the view to ripple.
-	/// - Returns: A ripple animation.
+	/// - parameter index: The index of the view to ripple.
+	/// - returns: A ripple animation.
 	public static func ripple(index: UInt) -> Self {
 		return Self
 			.spring(dampingFraction: 0.5)

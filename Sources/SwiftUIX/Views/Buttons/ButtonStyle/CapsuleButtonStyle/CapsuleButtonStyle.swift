@@ -15,7 +15,7 @@ public struct CapsuleButtonStyle {
 
 	/// Creates a new instance with the specified tint.
 	///
-	/// - Parameter tint: The tint color.
+	/// - parameter tint: The tint color.
 	public init(tint: Color? = nil) {
 		self.tint = tint
 	}

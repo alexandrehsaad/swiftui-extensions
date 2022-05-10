@@ -14,7 +14,7 @@ public struct LineChartStyle {
 	
 	/// Creates a line chart style with a tint color.
 	///
-	/// - Parameter tint: The tint color.
+	/// - parameter tint: The tint color.
 	public init(tint: Color) {
 		self.tint = tint
 	}

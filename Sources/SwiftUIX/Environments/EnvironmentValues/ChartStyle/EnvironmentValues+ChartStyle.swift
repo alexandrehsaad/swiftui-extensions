@@ -9,7 +9,7 @@ import SwiftUI
 
 extension EnvironmentValues {
 	/// The chart style environment value.
-	var chartStyle: AnyChartStyle {
+	internal var chartStyle: AnyChartStyle {
 		get { return self[ChartStyleEnvironmentKey.self] }
 		set { self[ChartStyleEnvironmentKey.self] = newValue }
 	}

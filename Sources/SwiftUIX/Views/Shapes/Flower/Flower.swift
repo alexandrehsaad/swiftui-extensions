@@ -21,10 +21,9 @@ where Petal: Shape {
 	
 	/// Creates a new instance with the specified minimized boolean, the number and shape of petals.
 	///
-	/// - Parameters:
-	///   - isMinimized: A boolean value.
-	///   - petals: The number of petals.
-	///   - shape: The shape of petals.
+	/// - parameter isMinimized: A boolean value.
+	/// - parameter petals: The number of petals.
+	/// - parameter shape: The shape of petals.
 	public init(isMinimized: Bool = false, petals: UInt = 7, shape: Petal) {
 		self.isMinimized = isMinimized
 		self.petals = petals

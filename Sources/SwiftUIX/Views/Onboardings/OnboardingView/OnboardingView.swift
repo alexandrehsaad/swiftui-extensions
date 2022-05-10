@@ -26,11 +26,10 @@ struct OnboardingView {
 	
 	/// Creates a new instance with the specified onboarding type, labels and terms.
 	///
-	/// - Parameters:
-	///   - isPresented: A binding to a boolean value that determines whether to present this sheet.
-	///   - title: The onboarding title.
-	///   - labels: The onboarding labels.
-	///   - terms: The terms in the footer.
+	/// - parameter isPresented: A binding to a boolean value that determines whether to present this sheet.
+	/// - parameter title: The onboarding title.
+	/// - parameter labels: The onboarding labels.
+	/// - parameter terms: The terms in the footer.
 	init(
 		_ isOnboardable: Binding<Bool>,
 		title: OnboardingTitle = .welcome,
@@ -45,11 +44,10 @@ struct OnboardingView {
 	
 	/// Creates a new instance with the specified onboarding type, labels and terms.
 	///
-	/// - Parameters:
-	///   - isPresented: A binding to a boolean value that determines whether to present this sheet.
-	///   - title: The onboarding title.
-	///   - terms: The terms in the footer.
-	///   - labels: The onboarding labels.
+	/// - parameter isPresented: A binding to a boolean value that determines whether to present this sheet.
+	/// - parameter title: The onboarding title.
+	/// - parameter terms: The terms in the footer.
+	/// - parameter labels: The onboarding labels.
 	init(
 		_ isOnboardable: Binding<Bool>,
 		title: OnboardingTitle = .welcome,

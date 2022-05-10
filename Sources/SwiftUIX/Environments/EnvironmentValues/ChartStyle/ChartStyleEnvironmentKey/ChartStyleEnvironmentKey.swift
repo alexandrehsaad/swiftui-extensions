@@ -8,13 +8,13 @@
 import SwiftUI
 
 /// The chart style environment key.
-struct ChartStyleEnvironmentKey {
-	/// Creates a new instance
-	init() {}
+internal struct ChartStyleEnvironmentKey {
+	/// Creates a new instance.
+	internal init() {}
 }
 
 // MARK: - EnvironmentKey
 
 extension ChartStyleEnvironmentKey: EnvironmentKey {
-	static var defaultValue: AnyChartStyle = .init(LineChartStyle(tint: .accentColor))
+	internal static var defaultValue: AnyChartStyle = .init(LineChartStyle(tint: .accentColor))
 }

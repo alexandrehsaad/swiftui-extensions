@@ -18,16 +18,15 @@ public struct Chart {
 	
 	/// Creates a chart based on a configuration for a style with a custom appearance.
 	///
-	/// - Parameter configuration: The chart style configuration
-	init(_ configuration: ChartStyleConfiguration) {
+	/// - parameter configuration: The chart style configuration
+	internal init(_ configuration: ChartStyleConfiguration) {
 		self.configuration = configuration
 	}
 	
 	/// Creates a chart that generates its label from a string.
 	///
-	/// - Parameters:
-	///   - title: The title.
-	///   - data: The data to chart.
+	/// - parameter title: The title.
+	/// - parameter data: The data to chart.
 	public init<S>(_ title: S, data: [CGFloat])
 	where S: StringProtocol {
 		let label: Text = .init(title)
@@ -37,10 +36,9 @@ public struct Chart {
 	
 	/// Creates a chart that generates its label from a localized string key.
 	///
-	/// - Parameters:
-	///   - titleKey: The localized key.
-	///   - data: The data to chart.
-	init(_ titleKey: LocalizedStringKey, data: [CGFloat]) {
+	/// - parameter titleKey: The localized key.
+	/// - parameter data: The data to chart.
+	internal init(_ titleKey: LocalizedStringKey, data: [CGFloat]) {
 		let label: Text = .init(titleKey)
 		let configuration: ChartStyleConfiguration = .init(label: label, data: data)
 		self.init(configuration)

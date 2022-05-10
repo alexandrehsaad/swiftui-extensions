@@ -8,14 +8,14 @@
 import SwiftUI
 
 ///
-struct AnyChartStyle {
+internal struct AnyChartStyle {
 	///
 	private let styleMakeBody: (ChartStyle.Configuration) -> AnyView
 	
 	/// Creates a new instance with the spcified chart style.
 	///
-	/// - Parameter style: The style.
-	init<Style>(_ style: Style)
+	/// - parameter style: The style.
+	internal init<Style>(_ style: Style)
 	where Style: ChartStyle {
 		self.styleMakeBody = style.makeTypeErasedBody
 	}
@@ -24,7 +24,7 @@ struct AnyChartStyle {
 // MARK: - ChartStyle
 
 extension AnyChartStyle: ChartStyle {
-	func makeBody(configuration: ChartStyle.Configuration) -> AnyView {
+	internal func makeBody(configuration: ChartStyle.Configuration) -> AnyView {
 		return self.styleMakeBody(configuration)
 	}
 }

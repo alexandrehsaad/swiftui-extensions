@@ -14,9 +14,8 @@ where Content == AnyView,
 	  SelectionValue.AllCases: RandomAccessCollection {
 	/// Creates a new instance with the specified title key and selection.
 	///
-	/// - Parameters:
-	///   - titleKey: The title key.
-	///   - selection: The selection.
+	/// - parameter titleKey: The title key.
+	/// - parameter selection: The selection.
 	public init(_ titleKey: LocalizedStringKey, selection: Binding<SelectionValue>) {
 		self.init(titleKey, selection: selection) {
 			return AnyView(
@@ -30,9 +29,8 @@ where Content == AnyView,
 	
 	/// Creates a new instance with the specified title and selection.
 	///
-	/// - Parameters:
-	///   - title: The title.
-	///   - selection: The selection.
+	/// - parameter title: The title.
+	/// - parameter selection: The selection.
 	public init<S>(_ title: S, selection: Binding<SelectionValue>)
 	where S: StringProtocol {
 		self.init(title, selection: selection) {

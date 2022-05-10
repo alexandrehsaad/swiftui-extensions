@@ -55,11 +55,10 @@ extension View {
 	/// }
 	/// ```
 	///
-	/// - Parameters:
-	///   - isOnboardable: A binding to a boolean value that determines whether to present this sheet.
-	///   - OnboardingTitle: The onboarding title.
-	///   - labels: The onboarding labels.
-	///   - terms: The terms in the footer.
+	/// - parameter isOnboardable: A binding to a boolean value that determines whether to present this sheet.
+	/// - parameter OnboardingTitle: The onboarding title.
+	/// - parameter labels: The onboarding labels.
+	/// - parameter terms: The terms in the footer.
 	@available(iOS 15, watchOS 8, *)
 	public func onboardable(
 		_ isOnboardable: Binding<Bool>,
@@ -117,11 +116,10 @@ extension View {
 	/// }
 	/// ```
 	///
-	/// - Parameters:
-	///   - isOnboardable: A binding to a boolean value that determines whether to present this sheet.
-	///   - OnboardingTitle: The onboarding title.
-	///   - terms: The terms in the footer.
-	///   - labels: The onboarding labels.
+	/// - parameter isOnboardable: A binding to a boolean value that determines whether to present this sheet.
+	/// - parameter OnboardingTitle: The onboarding title.
+	/// - parameter terms: The terms in the footer.
+	/// - parameter labels: The onboarding labels.
 	@available(iOS 15, watchOS 8, *)
 	public func onboardable(
 		_ isOnboardable: Binding<Bool>,

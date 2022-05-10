@@ -21,10 +21,9 @@ where Content: View {
 	
 	/// Creates a new instance that's scrollable in the direction of the given axis and can show indicators while scrolling.
 	///
-	/// - Parameters:
-	///   - axes: The scroll view's scrollable axis.
-	///   - showsIndicators: A Boolean value indicating whether the scroll view displays the scrollable component of the content offset.
-	///   - content: The view builder that creates the scrollable view.
+	/// - parameter axes: The scroll view's scrollable axis.
+	/// - parameter showsIndicators: A Boolean value indicating whether the scroll view displays the scrollable component of the content offset.
+	/// - parameter content: The view builder that creates the scrollable view.
 	public init(
 		_ axis: Axis.Set = .vertical,
 		showsIndicators: Bool,

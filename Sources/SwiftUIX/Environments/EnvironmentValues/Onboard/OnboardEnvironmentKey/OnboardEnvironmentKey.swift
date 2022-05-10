@@ -8,13 +8,13 @@
 import SwiftUI
 
 /// The onboard environment key.
-struct OnboardEnvironmentKey {
-	/// Creates a new instance
-	init() {}
+internal struct OnboardEnvironmentKey {
+	/// Creates a new instance.
+	internal init() {}
 }
 
 // MARK: - EnvironmentKey
 
 extension OnboardEnvironmentKey: EnvironmentKey {
-	static var defaultValue: Bool = false
+	internal static var defaultValue: Bool = false
 }

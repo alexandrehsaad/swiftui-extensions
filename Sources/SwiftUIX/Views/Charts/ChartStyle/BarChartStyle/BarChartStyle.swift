@@ -14,7 +14,7 @@ public struct BarChartStyle {
 	
 	/// Creates a bar chart style with a tint color.
 	///
-	/// - Parameter tint: The tint color.
+	/// - parameter tint: The tint color.
 	public init(tint: Color) {
 		self.tint = tint
 	}

@@ -80,10 +80,10 @@ extension View {
 			.allowsHitTesting(isShown == true)
 	}
 	
-	/// Minimizes this view.
+	/// Adds a condition that controls whether this view is minimized.
 	///
 	/// - parameter isMinimized: A boolean value.
-	/// - returns: This view showing or hidding.
+	/// - returns: This view minimized or not.
 	public func minimized(_ isMinimized: Bool) -> some View {
 		return VStack(alignment: .center, spacing: .zero) {
 			ZStack(alignment: .top) {
@@ -93,6 +93,19 @@ extension View {
 			}
 		}
 		.clipped()
+	}
+	
+	/// Adds a condition that controls whether this view is discarded.
+	///
+	/// - parameter isRemoved: A boolean value.
+	/// - returns: This view discarded or not.
+	@ViewBuilder
+	public func discarded(_ isDiscarded: Bool) -> some View {
+		if isDiscarded {
+			EmptyView()
+		} else {
+			self
+		}
 	}
 }
 

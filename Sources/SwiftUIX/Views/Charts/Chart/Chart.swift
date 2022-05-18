@@ -11,10 +11,10 @@ import SwiftUI
 public struct Chart {
 	/// The chart style.
 	@Environment(\.chartStyle)
-	private var chartStyle: AnyChartStyle
+	internal var chartStyle: AnyChartStyle
 	
 	/// The chart style configuration.
-	private var configuration: ChartStyleConfiguration
+	internal var configuration: ChartStyleConfiguration
 	
 	/// Creates a chart based on a configuration for a style with a custom appearance.
 	///
@@ -42,13 +42,5 @@ public struct Chart {
 		let label: Text = .init(titleKey)
 		let configuration: ChartStyleConfiguration = .init(label: label, data: data)
 		self.init(configuration)
-	}
-}
-
-// MARK: - View
-
-extension Chart: View {
-	public var body: some View {
-		return self.chartStyle.makeBody(configuration: self.configuration)
 	}
 }

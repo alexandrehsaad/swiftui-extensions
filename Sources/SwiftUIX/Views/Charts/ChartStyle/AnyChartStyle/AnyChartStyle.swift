@@ -5,27 +5,17 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 ///
 internal struct AnyChartStyle {
 	///
-	private let styleMakeBody: (ChartStyle.Configuration) -> AnyView
+	internal let styleMakeBody: (ChartStyle.Configuration) -> AnyView
 	
-	/// Creates a new instance with the spcified chart style.
+	/// Creates a new instance with the specified chart style.
 	///
 	/// - parameter style: The style.
 	internal init<Style>(_ style: Style)
 	where Style: ChartStyle {
 		self.styleMakeBody = style.makeTypeErasedBody
-	}
-}
-
-// MARK: - ChartStyle
-
-extension AnyChartStyle: ChartStyle {
-	internal func makeBody(configuration: ChartStyle.Configuration) -> AnyView {
-		return self.styleMakeBody(configuration)
 	}
 }
 

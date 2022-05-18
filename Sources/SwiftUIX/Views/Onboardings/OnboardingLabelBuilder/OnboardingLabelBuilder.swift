@@ -7,7 +7,7 @@
 
 ///
 @resultBuilder
-internal struct OnboardingLabelBuilder {
+public struct OnboardingLabelBuilder {
 	public static func buildBlock(_ labels: OnboardingLabel...) -> Array<OnboardingLabel> {
 		return labels
 	}

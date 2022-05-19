@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension OnboardingTitle: LocalizedDescription {
+extension OnboardingTitle: CustomKeyLocalizable {
 	public var localizedDescription: LocalizedStringKey {
 		switch self {
 		case .welcome:

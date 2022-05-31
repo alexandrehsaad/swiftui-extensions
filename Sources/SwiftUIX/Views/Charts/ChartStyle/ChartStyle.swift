@@ -18,3 +18,9 @@ public protocol ChartStyle {
 	/// Creates a view that represents the body of a chart.
 	func makeBody(configuration: Self.Configuration) -> Self.Body
 }
+
+extension ChartStyle {
+	internal func makeTypeErasedBody(configuration: ChartStyle.Configuration) -> AnyView {
+		return .init(self.makeBody(configuration: configuration))
+	}
+}

@@ -9,6 +9,7 @@ import SwiftUI
 
 extension Chart: View {
 	public var body: some View {
-		return self.chartStyle.makeBody(configuration: self.configuration)
+		return self.chartStyle
+			.makeBody(configuration: self.configuration)
 	}
 }

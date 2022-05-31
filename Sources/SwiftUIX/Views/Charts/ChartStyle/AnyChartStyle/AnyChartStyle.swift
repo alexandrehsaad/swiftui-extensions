@@ -18,9 +18,3 @@ internal struct AnyChartStyle {
 		self.styleMakeBody = style.makeTypeErasedBody
 	}
 }
-
-extension ChartStyle {
-	fileprivate func makeTypeErasedBody(configuration: ChartStyle.Configuration) -> AnyView {
-		return .init(self.makeBody(configuration: configuration))
-	}
-}

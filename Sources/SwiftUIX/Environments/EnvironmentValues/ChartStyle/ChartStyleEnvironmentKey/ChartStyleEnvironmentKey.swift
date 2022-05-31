@@ -12,9 +12,3 @@ internal struct ChartStyleEnvironmentKey {
 	/// Creates a new instance.
 	internal init() {}
 }
-
-// MARK: - EnvironmentKey
-
-extension ChartStyleEnvironmentKey: EnvironmentKey {
-	internal static var defaultValue: AnyChartStyle = .init(LineChartStyle(tint: .accentColor))
-}

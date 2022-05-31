@@ -20,7 +20,7 @@ public struct FullWidthButtonStyle {
 extension FullWidthButtonStyle: ButtonStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
 		configuration.label
-			.font(.headline)
+			.font(.headline.bold())
 			.padding(.vertical, 16)
 			.frame(maxWidth: .infinity)
 			.overlay(configuration.isPressed ? Color.white.opacity(0.2) : .clear)

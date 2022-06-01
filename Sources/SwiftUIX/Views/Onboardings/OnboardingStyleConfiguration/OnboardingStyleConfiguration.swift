@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// The properties of an onboarding.
 public struct OnboardingStyleConfiguration {
 	/// The onboarding title.

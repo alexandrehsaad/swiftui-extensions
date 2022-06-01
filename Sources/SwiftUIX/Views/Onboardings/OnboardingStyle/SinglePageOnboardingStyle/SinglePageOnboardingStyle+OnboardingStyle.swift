@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension SinglePageOnboardingStyle: OnboardingStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
 		return VStack(alignment: .center, spacing: 24) {

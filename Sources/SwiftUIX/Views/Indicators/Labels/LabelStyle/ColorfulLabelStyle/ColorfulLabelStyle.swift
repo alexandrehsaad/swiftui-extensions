@@ -5,50 +5,26 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 // TODO: test on other platforms
 /// A label style that shows both the title and icon of the label using a system-standard layout.
 @available(iOS 15, *)
-struct ColorfulLabelStyle {
+internal struct ColorfulLabelStyle {
 	/// The tint of this label.
-	var tint: Color
+	internal var tint: Color
 	
 	/// Creates a new instance with the specified tint.
 	///
 	/// - parameter color: The tint.
-	init(tint: Color) {
+	internal init(tint: Color) {
 		self.tint = tint
 	}
 	
 	/// The cliped shape.
-	private var clipShape: String {
+	internal var clipShape: String {
 		#if os(watchOS)
 		return "circle.fill"
 		#else
 		return "app.fill"
 		#endif
-	}
-}
-
-// MARK: - LabelStyle
-
-@available(iOS 15, *)
-extension ColorfulLabelStyle: LabelStyle {
-	func makeBody(configuration: Configuration) -> some View {
-		return Label {
-			configuration.title
-		} icon: {
-			ZStack(alignment: .center) {
-				Image(systemName: self.clipShape)
-					.font(.title)
-					.foregroundColor(self.tint)
-				
-				configuration.icon
-					.font(.footnote.weight(.semibold))
-					.foregroundColor(.white)
-			}
-			.frame(height: .zero)
-		}
 	}
 }

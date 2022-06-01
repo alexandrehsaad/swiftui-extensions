@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// A type that applies a custom appearance to all charts within a view.
 public protocol ChartStyle {
 	/// The properties of a label.

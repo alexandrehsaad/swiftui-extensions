@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension AnyOnboardingStyle: OnboardingStyle {
 	public func makeBody(configuration: OnboardingStyle.Configuration) -> AnyView {
 		return self.styleMakeBody(configuration)

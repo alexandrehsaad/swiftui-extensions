@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// The chart style environment key.
 internal struct ChartStyleEnvironmentKey {
 	/// Creates a new instance.

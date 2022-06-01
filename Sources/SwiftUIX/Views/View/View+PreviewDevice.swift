@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension View {
 	/// Overrides the devices for a preview.
 	///

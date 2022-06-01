@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 extension EditMode {

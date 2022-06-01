@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension View {
 	/// Positions this view within an invisible frame with the specified size.
 	///

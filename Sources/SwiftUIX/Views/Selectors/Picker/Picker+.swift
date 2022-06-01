@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension Picker
 where Content == AnyView,
 	  Label == Text,

@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension EnvironmentValues {
 	/// A boolean value indicating whether this environment is running in a preview.
 	public var isRunningInPreview: Bool {

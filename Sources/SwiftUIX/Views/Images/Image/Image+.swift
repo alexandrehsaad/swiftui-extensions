@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension Image {
 	/// Creates a new instance with the specified file name and type.
 	///

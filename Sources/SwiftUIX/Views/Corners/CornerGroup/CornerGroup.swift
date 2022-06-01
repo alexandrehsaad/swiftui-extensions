@@ -47,7 +47,7 @@ public enum CornerGroup {
 
 extension CornerGroup {
 	/// The corners contained in the group.
-	var corners: Set<Corner> {
+	internal var corners: Set<Corner> {
 		switch self {
 		case .all:
 			return .init(Corner.allCases)

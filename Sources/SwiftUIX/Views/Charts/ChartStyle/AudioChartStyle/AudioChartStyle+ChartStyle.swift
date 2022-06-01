@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension AudioChartStyle: ChartStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
 		let min: CGFloat = .maximum(.zero, configuration.data.min() ?? .zero)

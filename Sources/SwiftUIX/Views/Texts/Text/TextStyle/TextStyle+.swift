@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension Font.TextStyle {
 	/// The default leading used by this text style.
 	public var defaultLeading: CGFloat? {

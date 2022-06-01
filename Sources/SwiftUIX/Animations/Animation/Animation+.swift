@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension Animation {
 	/// A  ripple animation.
 	///

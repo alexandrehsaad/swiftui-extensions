@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension EdgeInsets {
 	/// The horizontal insets.
 	public var horizontal: CGFloat {

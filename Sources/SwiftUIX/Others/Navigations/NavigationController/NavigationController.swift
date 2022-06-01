@@ -8,6 +8,7 @@
 import Combine
 
 /// A representation of a navigation controller.
+@available(*, deprecated)
 public final class NavigationController<SheetTag, TabTag, LinkTag>: ObservableObject
 where SheetTag: Hashable, TabTag: Hashable, LinkTag: Hashable {
 	/// Creates a new instance.

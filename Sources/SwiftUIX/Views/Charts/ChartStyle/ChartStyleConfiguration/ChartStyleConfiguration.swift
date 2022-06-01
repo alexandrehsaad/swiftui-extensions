@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// The properties of a chart.
 public struct ChartStyleConfiguration {
 	/// The label.

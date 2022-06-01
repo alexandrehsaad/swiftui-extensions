@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension EnvironmentValues {
 	/// The onboarding style environment value.
 	internal var onboardingStyle: AnyOnboardingStyle {

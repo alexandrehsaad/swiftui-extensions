@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// An onboarding in a single page.
 public struct SinglePageOnboardingStyle {
 	///

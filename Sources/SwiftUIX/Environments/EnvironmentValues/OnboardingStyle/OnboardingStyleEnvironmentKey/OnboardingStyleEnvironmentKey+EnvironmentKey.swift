@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension OnboardingStyleEnvironmentKey: EnvironmentKey {
 	internal static var defaultValue: AnyOnboardingStyle = .init(SinglePageOnboardingStyle())
 }

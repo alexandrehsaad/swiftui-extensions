@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension Color {
 	/// Creates a new instance with the specified hexadecimal value.
 	///

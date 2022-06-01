@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// A representation of an onboarding view.
 @available(iOS 15, *)
 public struct OnboardingView {

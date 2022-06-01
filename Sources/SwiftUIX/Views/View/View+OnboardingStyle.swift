@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension View {
 	/// Sets the style for onboardings within this view.
 	public func onboardingStyle<Style>(_ style: Style) -> some View

@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension View {
 	/// Sets the style for charts within this view.
 	public func chartStyle<Style>(_ style: Style) -> some View

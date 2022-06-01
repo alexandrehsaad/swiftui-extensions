@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension View {
 	/// Clips this view to its bounding frame, with the specified corner radius.
 	///

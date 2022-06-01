@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// A representation of a chart.
 public struct Chart {
 	/// The chart style.

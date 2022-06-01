@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension View {
 	/// Reads the drag direction.
 	public func readDragDirection(perform action: @escaping (DragDirection) -> Void) -> some View {

@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension ChartStyleEnvironmentKey: EnvironmentKey {
 	internal static var defaultValue: AnyChartStyle = .init(LineChartStyle(tint: .accentColor))
 }

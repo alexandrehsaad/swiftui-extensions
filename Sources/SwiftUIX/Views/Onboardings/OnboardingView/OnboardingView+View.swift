@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 #if os(iOS)
 
 extension OnboardingView: View {

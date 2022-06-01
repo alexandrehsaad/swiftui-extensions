@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// A representation of a user interface.
 public enum UserInterface {
 	/// An interface designed for an in-car experience.

@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 extension Chart: View {
 	public var body: some View {
 		return self.chartStyle

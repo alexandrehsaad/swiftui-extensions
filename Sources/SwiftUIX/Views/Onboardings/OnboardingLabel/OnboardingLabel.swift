@@ -5,8 +5,6 @@
 // Licensed under the MIT License
 //
 
-import SwiftUI
-
 /// A representation of an onboarding label.
 public struct OnboardingLabel: Identifiable {
 	public let id: UUID = .init()

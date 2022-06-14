@@ -5,6 +5,8 @@
 // Licensed under the MIT License
 //
 
+#if os(watchOS)
+
 import SwiftUI
 
 @available(watchOS 15, *)
@@ -66,3 +68,5 @@ extension ScrollPageOnboardingStyle: OnboardingStyle {
 		}
 	}
 }
+
+#endif

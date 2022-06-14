@@ -8,7 +8,6 @@ A package containing extensions for Apple's SwiftUI framework.
 
 - iOS 15.0+
 - iPadOS 15.0+
-- macOS 12.0+
 - watchOS 8.0+
 
 ## Installation

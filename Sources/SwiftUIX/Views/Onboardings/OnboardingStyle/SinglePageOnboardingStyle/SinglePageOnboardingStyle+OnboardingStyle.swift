@@ -5,6 +5,8 @@
 // Licensed under the MIT License
 //
 
+#if os(iOS)
+
 @available(iOS 15, *)
 extension SinglePageOnboardingStyle: OnboardingStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
@@ -72,3 +74,5 @@ extension SinglePageOnboardingStyle: OnboardingStyle {
 		.padding(.horizontal)
 	}
 }
+
+#endif

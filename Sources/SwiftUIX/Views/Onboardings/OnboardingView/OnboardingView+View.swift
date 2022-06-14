@@ -5,7 +5,6 @@
 // Licensed under the MIT License
 //
 
-@available(iOS 15, watchOS 8, *)
 extension OnboardingView: View {
 	public var body: some View {
 		return self.onboardingStyle

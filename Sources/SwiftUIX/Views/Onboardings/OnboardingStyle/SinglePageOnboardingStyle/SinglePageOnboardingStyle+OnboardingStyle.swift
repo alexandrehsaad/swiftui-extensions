@@ -7,7 +7,6 @@
 
 #if os(iOS)
 
-@available(iOS 15, *)
 extension SinglePageOnboardingStyle: OnboardingStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
 		return VStack(alignment: .center, spacing: 24) {

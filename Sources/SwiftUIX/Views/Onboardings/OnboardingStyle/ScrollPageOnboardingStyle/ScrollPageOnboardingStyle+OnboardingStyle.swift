@@ -9,7 +9,6 @@
 
 import SwiftUI
 
-@available(watchOS 15, *)
 extension ScrollPageOnboardingStyle: OnboardingStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
 		return ScrollView(.vertical, showsIndicators: true) {

@@ -5,7 +5,6 @@
 // Licensed under the MIT License
 //
 
-// TODO: test on other platforms
 /// A progress view that visually indicates its progress using an orbit.
 @available(iOS 15, *)
 public struct OrbitalProgressStyle {

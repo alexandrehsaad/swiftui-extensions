@@ -8,7 +8,6 @@
 #if os(iOS)
 
 /// An onboarding in a single page.
-@available(iOS 15, *)
 public struct SinglePageOnboardingStyle {
 	///
 	public init() {}

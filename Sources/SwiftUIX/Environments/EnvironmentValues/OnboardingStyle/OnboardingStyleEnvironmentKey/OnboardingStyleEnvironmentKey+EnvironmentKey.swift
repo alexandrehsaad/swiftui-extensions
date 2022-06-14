@@ -5,11 +5,16 @@
 // Licensed under the MIT License
 //
 
-@available(iOS 15, watchOS 15, *)
+#if os(iOS)
+
 extension OnboardingStyleEnvironmentKey: EnvironmentKey {
-	#if os(iOS)
 	internal static var defaultValue: AnyOnboardingStyle = .init(SinglePageOnboardingStyle())
-	#elseif os(watchOS)
-	internal static var defaultValue: AnyOnboardingStyle = .init(ScrollPageOnboardingStyle())
-	#endif
 }
+
+#elseif os(watchOS)
+
+extension OnboardingStyleEnvironmentKey: EnvironmentKey {
+	internal static var defaultValue: AnyOnboardingStyle = .init(ScrollPageOnboardingStyle())
+}
+
+#endif

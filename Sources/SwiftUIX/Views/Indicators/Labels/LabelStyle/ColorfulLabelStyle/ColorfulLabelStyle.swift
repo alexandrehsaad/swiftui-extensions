@@ -5,7 +5,6 @@
 // Licensed under the MIT License
 //
 
-// TODO: test on other platforms
 /// A label style that shows both the title and icon of the label using a system-standard layout.
 @available(iOS 15, *)
 internal struct ColorfulLabelStyle {

@@ -5,6 +5,8 @@
 // Licensed under the MIT License
 //
 
+#if os(iOS)
+
 extension OnboardingView: View {
 	public var body: some View {
 		return self.onboardingStyle
@@ -17,3 +19,19 @@ extension OnboardingView: View {
 			.edgesIgnoringSafeArea(.top)
 	}
 }
+
+#elseif os(watchOS)
+
+extension OnboardingView: View {
+	public var body: some View {
+		return self.onboardingStyle
+			.makeBody(configuration: self.configuration)
+			.navigationViewStyle(.stack)
+			.navigationTitle("")
+			.navigationBarTitleDisplayMode(.inline)
+			.navigationBarHidden(false)
+			.navigationBarBackButtonHidden(true)
+	}
+}
+
+#endif

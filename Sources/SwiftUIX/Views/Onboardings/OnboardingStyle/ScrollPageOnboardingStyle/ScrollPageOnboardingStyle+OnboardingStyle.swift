@@ -50,17 +50,19 @@ extension ScrollPageOnboardingStyle: OnboardingStyle {
 					.padding(.vertical)
 				}
 				
-				Section {
-					configuration.button
-						.buttonStyle(BorderedButtonStyle(tint: .accentColor))
-				} footer: {
-					if let terms: Text = configuration.terms {
-						terms
-							.font(.system(size: 10))
-							.allowsTightening(true)
-							.foregroundColor(.secondary)
-							.multilineTextAlignment(.leading)
-							.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+				VStack(alignment: .center, spacing: nil) {
+					Section {
+						configuration.button
+							.buttonStyle(BorderedButtonStyle(tint: .accentColor))
+					} footer: {
+						if let terms: Text = configuration.terms {
+							terms
+								.font(.system(size: 10))
+								.allowsTightening(true)
+								.foregroundColor(.secondary)
+								.multilineTextAlignment(.leading)
+								.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+						}
 					}
 				}
 			}

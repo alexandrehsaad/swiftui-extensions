@@ -10,13 +10,13 @@ public struct OnboardingLabel: Identifiable {
 	public let id: UUID = .init()
 	
 	/// The image of this label.
-	internal let image: Image
+	public let image: Image
 	
 	/// The title of this label.
-	internal let title: Text
+	public let title: Text
 	
 	/// The subtitle of this label.
-	internal let subtitle: Text
+	public let subtitle: Text
 	
 	/// Creates a new instance with the specified image, title and subtitle.
 	///

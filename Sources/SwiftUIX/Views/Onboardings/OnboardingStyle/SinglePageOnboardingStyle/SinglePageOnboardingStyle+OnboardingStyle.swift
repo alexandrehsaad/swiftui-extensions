@@ -5,6 +5,7 @@
 // Licensed under the MIT License
 //
 
+@available(iOS 15, *)
 extension SinglePageOnboardingStyle: OnboardingStyle {
 	public func makeBody(configuration: Self.Configuration) -> some View {
 		return VStack(alignment: .center, spacing: 24) {
@@ -33,15 +34,15 @@ extension SinglePageOnboardingStyle: OnboardingStyle {
 						label.title
 							.font(.footnote)
 							.fontWeight(.semibold)
-							.lineLimit(1)
 							.foregroundColor(.primary)
+							.lineLimit(1)
 							.frame(maxWidth: .infinity, alignment: .leading)
 						
 						label.subtitle
 							.font(.footnote)
+							.foregroundColor(.secondary)
 							.allowsTightening(true)
 							.multilineTextAlignment(.leading)
-							.foregroundColor(.secondary)
 							.frame(maxWidth: .infinity, alignment: .leading)
 					}
 					.padding(.trailing)
@@ -56,8 +57,8 @@ extension SinglePageOnboardingStyle: OnboardingStyle {
 					terms
 						.font(.caption2)
 						.allowsTightening(true)
-						.multilineTextAlignment(.center)
 						.foregroundColor(.secondary)
+						.multilineTextAlignment(.center)
 						.fixedSize(horizontal: false, vertical: true)
 						.padding(.horizontal)
 				}

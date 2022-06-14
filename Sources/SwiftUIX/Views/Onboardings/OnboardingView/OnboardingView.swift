@@ -6,7 +6,7 @@
 //
 
 /// A representation of an onboarding view.
-@available(iOS 15, *)
+@available(iOS 15, watchOS 8, *)
 public struct OnboardingView {
 	/// The onboarding style.
 	@Environment(\.onboardingStyle)

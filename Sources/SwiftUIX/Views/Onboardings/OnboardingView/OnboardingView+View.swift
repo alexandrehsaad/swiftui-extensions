@@ -5,18 +5,16 @@
 // Licensed under the MIT License
 //
 
-#if os(iOS)
-
+@available(iOS 15, watchOS 8, *)
 extension OnboardingView: View {
 	public var body: some View {
 		return self.onboardingStyle
 			.makeBody(configuration: self.configuration)
 			.navigationViewStyle(.stack)
-			.navigationBarTitle("", displayMode: .inline)
+			.navigationTitle("")
+			.navigationBarTitleDisplayMode(.inline)
 			.navigationBarHidden(true)
 			.navigationBarBackButtonHidden(true)
 			.edgesIgnoringSafeArea(.top)
 	}
 }
-
-#endif

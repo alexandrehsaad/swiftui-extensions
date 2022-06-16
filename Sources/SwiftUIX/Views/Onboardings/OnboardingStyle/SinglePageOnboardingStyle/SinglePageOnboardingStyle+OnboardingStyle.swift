@@ -33,14 +33,14 @@ extension SinglePageOnboardingStyle: OnboardingStyle {
 					
 					VStack(alignment: .leading, spacing: 2) {
 						label.title
-							.font(.footnote)
+							.font(.subheadline)
 							.fontWeight(.semibold)
 							.foregroundColor(.primary)
 							.lineLimit(2)
 							.frame(maxWidth: .infinity, alignment: .leading)
 						
 						label.subtitle
-							.font(.footnote)
+							.font(.subheadline)
 							.foregroundColor(.secondary)
 							.allowsTightening(true)
 							.multilineTextAlignment(.leading)
